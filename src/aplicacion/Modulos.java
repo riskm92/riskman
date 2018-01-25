@@ -52,9 +52,10 @@ public class Modulos extends javax.swing.JFrame {
         jPanel_reportes = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setUndecorated(true);
 
@@ -225,6 +226,11 @@ public class Modulos extends javax.swing.JFrame {
         });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Search_55px_1.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 102, 255));
@@ -333,6 +339,22 @@ public class Modulos extends javax.swing.JFrame {
 
         jPanel2.add(jPanel_reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 130, 120));
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 510, -1, -1));
+
+        jButton2.setText("Cerrar Sesión");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -422,6 +444,24 @@ public class Modulos extends javax.swing.JFrame {
      
       
     }//GEN-LAST:event_jPanel_homeMouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+         Analisis anal= new Analisis();
+        anal.setVisible(true);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Login visi=new Login();
+        visi.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void setColor(JPanel jpanel){
         
         jpanel.setBackground(new java.awt.Color(204,203,203));
@@ -468,6 +508,8 @@ public class Modulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
