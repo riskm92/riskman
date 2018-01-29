@@ -187,6 +187,11 @@ public class Modulos extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Data_Transfer_55px.png"))); // NOI18N
         jLabel3.setText("home");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 255));
@@ -447,8 +452,9 @@ public class Modulos extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-         Analisis anal= new Analisis();
-        anal.setVisible(true);
+        Analisis anali= new Analisis();
+        anali.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -462,6 +468,13 @@ public class Modulos extends javax.swing.JFrame {
         Login visi=new Login();
         visi.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Cruce1 rs= new Cruce1();
+        rs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel3MouseClicked
     public void setColor(JPanel jpanel){
         
         jpanel.setBackground(new java.awt.Color(204,203,203));
