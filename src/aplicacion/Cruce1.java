@@ -11,8 +11,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import metodos.Conexionbd;
 
 /**
@@ -21,6 +24,7 @@ import metodos.Conexionbd;
  */
 public class Cruce1 extends javax.swing.JFrame {
     DefaultTableModel modelo;
+    private TableRowSorter trsFiltro;
 
     /**
      * Creates new form Ingresos
@@ -56,6 +60,115 @@ public class Cruce1 extends javax.swing.JFrame {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
+       public int filtro() { 
+            int columnaABuscar = 0;
+            if (comboFiltro.getSelectedItem() == "Id") {
+                columnaABuscar = 0;
+            }
+            if (comboFiltro.getSelectedItem().toString() == "Localizacion") {
+                columnaABuscar = 1;
+            }
+            if (comboFiltro.getSelectedItem().toString() == "Nombre Activo") {
+                columnaABuscar = 2;
+            }
+            if (comboFiltro.getSelectedItem().toString() == "Tipo Activo") {
+                columnaABuscar = 3;
+            }
+            return columnaABuscar;
+        }
+       
+        void BuscarActivo(){
+   
+            String [] activos= {"Id","Localizacion","Nombre Activo", "Tipo Activo"};
+            modelo=new  DefaultTableModel(null,activos);
+            String datos []= new String[5];
+            int seleccion=filtro();
+            if (seleccion==0){
+                String cadena = (txtFiltro.getText());
+                //txtFiltro.setText(cadena);
+                String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where idactivo= '"+cadena+"' ";       
+                 try {
+                     Statement st = cxn.createStatement();
+                     ResultSet rs = st.executeQuery(sql);
+                     while(rs.next())
+                     { 
+                         datos[0]=rs.getString("idactivo");
+                         datos[1]=rs.getString("identificador");
+                         datos[2]= rs.getString("nombre_activo");
+                         datos[3]= rs.getString("tipo_activo");
+                         modelo.addRow(datos);
+                     }
+                     jTableActivo.setModel(modelo);
+                 } catch (SQLException ex) {
+                     Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+           }else{ 
+                    if (seleccion==1){
+                        String cadena = (txtFiltro.getText());
+                        //txtFiltro.setText(cadena);
+                        String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where identificador= '"+cadena+"' ";       
+                         try {
+                             Statement st = cxn.createStatement();
+                             ResultSet rs = st.executeQuery(sql);
+                             while(rs.next())
+                             { 
+                                 datos[0]=rs.getString("idactivo");
+                                 datos[1]=rs.getString("identificador");
+                                 datos[2]= rs.getString("nombre_activo");
+                                 datos[3]= rs.getString("tipo_activo");
+                                 modelo.addRow(datos);
+                             }
+                             jTableActivo.setModel(modelo);
+                         } catch (SQLException ex) {
+                             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                         }     
+                    }
+                    else{
+                        if (seleccion==2){
+                        String cadena = (txtFiltro.getText());
+                        //txtFiltro.setText(cadena);
+                        String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where nombre_activo= '"+cadena+"' ";       
+                         try {
+                             Statement st = cxn.createStatement();
+                             ResultSet rs = st.executeQuery(sql);
+                             while(rs.next())
+                             { 
+                                 datos[0]=rs.getString("idactivo");
+                                 datos[1]=rs.getString("identificador");
+                                 datos[2]= rs.getString("nombre_activo");
+                                 datos[3]= rs.getString("tipo_activo");
+                                 modelo.addRow(datos);
+                             }
+                             jTableActivo.setModel(modelo);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }else{
+                            if (seleccion==3){
+                                String cadena = (txtFiltro.getText());
+                                String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where tipo_activo= '"+cadena+"' ";       
+                                try {
+                                    Statement st = cxn.createStatement();
+                                    ResultSet rs = st.executeQuery(sql);
+                                    while(rs.next())
+                                    { 
+                                        datos[0]=rs.getString("idactivo");
+                                        datos[1]=rs.getString("identificador");
+                                        datos[2]= rs.getString("nombre_activo");
+                                        datos[3]= rs.getString("tipo_activo");
+                                        modelo.addRow(datos);
+                                    }
+                                    jTableActivo.setModel(modelo);
+                                   } catch (SQLException ex) {
+                                       Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                                       JOptionPane.showMessageDialog(null, "No existe el activo que indica, acceda al menu ingreso");
+                                    }
+                            }
+                        }   
+                     } 
+                 }
+        }
+
    Conexionbd conxlogin = new Conexionbd();
    Connection cxn = conxlogin.getConnection();
    String idfila="";
@@ -80,6 +193,7 @@ public class Cruce1 extends javax.swing.JFrame {
         txtFiltro = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableActivo = new javax.swing.JTable();
+        jButton_eliminar2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel_activos = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -183,6 +297,11 @@ public class Cruce1 extends javax.swing.JFrame {
         jLabel5.setText("Buscar Activo por:");
 
         comboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Id", "Localizacion", "Nombre Activo", "Tipo Activo" }));
+        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFiltroActionPerformed(evt);
+            }
+        });
 
         txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +309,9 @@ public class Cruce1 extends javax.swing.JFrame {
             }
         });
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFiltroKeyTyped(evt);
             }
@@ -213,6 +335,15 @@ public class Cruce1 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableActivo);
 
+        jButton_eliminar2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButton_eliminar2.setText("Buscar");
+        jButton_eliminar2.setBorder(null);
+        jButton_eliminar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_eliminar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -221,9 +352,9 @@ public class Cruce1 extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(513, 513, 513)
+                        .addGap(483, 483, 483)
                         .addComponent(jButton2)
-                        .addGap(48, 48, 48)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -233,27 +364,33 @@ public class Cruce1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(487, Short.MAX_VALUE)
+                    .addComponent(jButton_eliminar2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(413, 413, 413)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -265,16 +402,20 @@ public class Cruce1 extends javax.swing.JFrame {
                     .addComponent(jButton_nuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(382, Short.MAX_VALUE)
+                    .addComponent(jButton_eliminar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(118, 118, 118)))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 980, 530));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 980, 530));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -350,7 +491,7 @@ public class Cruce1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_modificarActionPerformed
 
     private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
-
+        BuscarActivo();
        
 
     }//GEN-LAST:event_jButton_eliminarActionPerformed
@@ -418,18 +559,94 @@ public class Cruce1 extends javax.swing.JFrame {
 
     private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
         // TODO add your handling code here:
-       /* txtFiltro.addKeyListener(new KeyAdapter() {
-            public void keyReleased(final KeyEvent e) {
-                String cadena = (txtFiltro.getText());
-                txtFiltro.setText(cadena);
-                repaint();
-                filtro();
-            }
-        });
-        trsFiltro = new TableRowSorter(tablaListado.getModel());
-        tablaListado.setRowSorter(trsFiltro);*/
+        
     }//GEN-LAST:event_txtFiltroKeyTyped
- public void setColor(JPanel jpanel){
+
+    private void jButton_eliminar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_eliminar2ActionPerformed
+
+    
+      
+    public void obtener(String dato){
+        
+    }
+    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
+        // TODO add your handling code here:
+//        String [] activos= {"Id","Localizacion","Nombre Activo", "Tipo Activo"};
+     /*   modelo=new  DefaultTableModel();
+        String datos []= new String[4];
+        String dato = "";
+        if(comboFiltro.getSelectedItem().toString().equals("Localizacion")){
+            dato = txtFiltro.getText().toString();
+            String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo  "; 
+                 //where Localizacion ='"+comboFiltro.getSelectedItem().toString()+"'   
+             try {
+                 Statement st = cxn.createStatement();
+                 ResultSet rs = st.executeQuery(sql);
+                 while(rs.next())
+                 { 
+                     datos[0]=rs.getString("idactivo");
+                     datos[1]=rs.getString("identificador");
+                     datos[2]= rs.getString("nombre_activo");
+                     datos[3]= rs.getString("tipo_activo");
+
+                     modelo.addRow(datos);
+                 }
+                 jTableActivo.setModel(modelo);
+             } catch (SQLException ex) {
+                 System.out.println("error " + ex);
+                 Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
+            
+        }else{
+            if(comboFiltro.getSelectedItem().toString().equals("Localizacion")){
+
+            }else{
+                if(comboFiltro.getSelectedItem().toString().equals("Nombre Activo")){
+
+                }else{
+                    if(comboFiltro.getSelectedItem().toString().equals("Tipo Activo")){
+
+                    }
+                }
+            }
+        }*/
+      
+    }//GEN-LAST:event_comboFiltroActionPerformed
+
+    private void txtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyReleased
+        // TODO add your handling code here:
+        /*String [] activos= {"Id","Localizacion","Nombre Activo", "Tipo Activo"};
+        modelo=new  DefaultTableModel(null,activos);
+        String datos []= new String[5];
+        //int seleccion=filtro();
+        //if (seleccion==1){
+        String cadena = (txtFiltro.getText());
+          //  System.out.println(cadena );
+           // txtFiltro.setText(cadena);
+        String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where nombre_activo ='"+cadena+"' ";                 
+             try {
+                 Statement st = cxn.createStatement();
+                 ResultSet rs = st.executeQuery(sql);
+                 while(rs.next())
+                 { 
+                     datos[0]=rs.getString("idactivo");
+                     datos[1]=rs.getString("identificador");
+                     datos[2]= rs.getString("nombre_activo");
+                     datos[3]= rs.getString("tipo_activo");
+
+                     modelo.addRow(datos);
+                 }
+                 jTableActivo.setModel(modelo);
+             } catch (SQLException ex) {
+                 System.out.println("error " + ex);
+                 Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+             }*/
+
+    }//GEN-LAST:event_txtFiltroKeyReleased
+    public void setColor(JPanel jpanel){
         
         jpanel.setBackground(new java.awt.Color(60,64,77));
         
@@ -480,6 +697,7 @@ public class Cruce1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_eliminar;
     private javax.swing.JButton jButton_eliminar1;
+    private javax.swing.JButton jButton_eliminar2;
     private javax.swing.JButton jButton_guardar;
     private javax.swing.JButton jButton_modificar;
     private javax.swing.JButton jButton_nuevo;
