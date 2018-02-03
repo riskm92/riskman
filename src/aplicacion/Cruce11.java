@@ -30,7 +30,7 @@ import metodos.Conexionbd;
  *
  * @author Leonardo
  */
-public class Cruce1 extends javax.swing.JFrame {
+public class Cruce11 extends javax.swing.JFrame {
     DefaultTableModel modelo;
     private TableRowSorter trsFiltro;
     JTable tabla;
@@ -38,7 +38,7 @@ public class Cruce1 extends javax.swing.JFrame {
     /**
      * Creates new form Ingresos
      */
-    public Cruce1() {
+    public Cruce11() {
         initComponents();
 
     }
@@ -50,11 +50,11 @@ public class Cruce1 extends javax.swing.JFrame {
      */
    void llenartabla(){
    String [] amenazas= {"Id","Amenaza","Aplicación"};
-   modelo=new  DefaultTableModel(null,amenazas); 
-   //tabla= new JTable(modelo);
+   DefaultTableModel modelo=new  DefaultTableModel(); 
+  
    String datos []= new String[5];
    String sql="SELECT idamenaza,nombre_amenaza FROM amenaza"; 
-   String apli="SI";
+
         try {
             Statement st = cxn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -66,8 +66,7 @@ public class Cruce1 extends javax.swing.JFrame {
                 modelo.addRow(datos);
             }
             jTableAmenazas.setModel(modelo);
-       // jTableAmenazas.getColumnModel().getColumn(2).setCellEditor( new metodos.Clase_CellEditor() );
-        //jTableAmenazas.getColumnModel().getColumn(0).setCellRenderer(new metodos.Clase_CellRender() );
+   
         } catch (SQLException ex) {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -731,20 +730,20 @@ public class Cruce1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cruce1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cruce11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cruce1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cruce11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cruce1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cruce11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cruce1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cruce11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cruce1().setVisible(true);
+                new Cruce11().setVisible(true);
             }
         });
     }
