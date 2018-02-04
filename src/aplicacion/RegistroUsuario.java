@@ -1,9 +1,11 @@
+package aplicacion;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,16 +44,32 @@ DefaultTableModel model;
                try {
                    String sql ="";
                    int fila = jTable_registro.getSelectedRow();
-                   sql="select id_usuario, nombres, apellidos, correo, celular, institucion, cedula, usuario, contraseña from usuarios";
+                   sql="select idusuario, nombres, apellidos, correo, celular, institucion, cedula, usuario, password from usuario";
                   Statement st = cxn.createStatement();
                   ResultSet rs = st.executeQuery(sql);
                   
          //    Statement sent=cxn.createStatement();
            // int n=sent.executeQuery(sql);
-            
-           if(fila>0){
+           if (jTable_registro.getSelectedRow() !=-1) {
+                     //int fila = jTable_registro.getSelectedRow();
+                      jTextField_id.setText(jTable_registro.getValueAt(fila, 1).toString());
+                      jTextField_nombres.setText(jTable_registro.getValueAt(fila, 2).toString()); 
+                      jTextField_apellidos.setText(jTable_registro.getValueAt(fila, 3).toString());   
+                      jTextField_correo.setText(jTable_registro.getValueAt(fila, 4).toString());   
+                      jTextField_celular.setText(jTable_registro.getValueAt(fila, 5).toString());   
+                      jTextField_institucion.setText(jTable_registro.getValueAt(fila, 6).toString());   
+                      jTextField_cedula.setText(jTable_registro.getValueAt(fila, 7).toString());   
+                      jTextField_usuario.setText(jTable_registro.getValueAt(fila, 8).toString());   
+                      jPassword.setText(jTable_registro.getValueAt(fila, 9).toString());   
+                     // jTextField_nombres.setText(jTable_registro.getValueAt(fila, 2).toString());   
+           
+           
+           
+           
+           }
+         /*  if(fila>0){
              
-             jTextField_id.setText(rs.getString("id_usuario"));
+             jTextField_id.setText(rs.getString("idusuario"));
              jTextField_nombres.setText(rs.getString("nombres"));
              jTextField_apellidos.setText(rs.getString("apellidos"));
              jTextField_correo.setText(rs.getString("correo"));
@@ -61,7 +79,7 @@ DefaultTableModel model;
              jTextField_usuario.setText(rs.getString("usuario"));
              jPassword.setText(rs.getString("contraseña"));
 
-            }
+            }*/
                
             
           
@@ -160,13 +178,13 @@ DefaultTableModel model;
    String [] titulos= {"Id","Cedula","Usuario","Tipo Usuario"};
    modelo=new  DefaultTableModel(null,titulos);   
    String datos []= new String[5];
-   String sql="SELECT id_usuario,cedula,usuario,tipo_usuario FROM usuarios"; 
+   String sql="SELECT idusuario,cedula,usuario,tipo_usuario FROM usuario"; 
         try {
             Statement st = cxn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next())
             { 
-                datos[0]=rs.getString("id_usuario");
+                datos[0]=rs.getString("idusuario");
                 datos[1]=rs.getString("cedula");
                 datos[2]= rs.getString("usuario");
                 datos[3]= rs.getString("tipo_usuario");

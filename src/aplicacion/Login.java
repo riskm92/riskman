@@ -24,10 +24,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+   
     public Login() {
-        initComponents();
+      initComponents();
         this.setLocationRelativeTo(null);
+     //   this.setUndecorated(false);
         //edite esta parte
+         
     }
 
     /**
@@ -56,7 +59,6 @@ public class Login extends javax.swing.JFrame {
         TextUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        BSalir = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -73,7 +75,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(152, 189, 219));
         setLocation(new java.awt.Point(0, 0));
-        setUndecorated(true);
+        setLocationByPlatform(true);
 
         jPanel4.setBackground(new java.awt.Color(233, 235, 238));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,17 +161,6 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pass.png"))); // NOI18N
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
-        BSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Multiply_20px.png"))); // NOI18N
-        BSalir.setBorder(null);
-        BSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        BSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BSalirActionPerformed(evt);
-            }
-        });
-        jPanel4.add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 30, 30));
-
         jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
@@ -178,7 +169,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,15 +208,16 @@ public class Login extends javax.swing.JFrame {
             }
         }*/
     }//GEN-LAST:event_BIngresarActionPerformed
-  
+
     public void Ingresar(String user, String pass){
  
     String capt = "";
    
-    String sql="SELECT * FROM usuarios WHERE usuario='"+user+"' && contraseña='"+pass+"'";
+    String sql="SELECT * FROM usuario WHERE usuario='"+user+"' && password='"+pass+"'";
     try {
         Statement st = cxn.createStatement();
         ResultSet rs = st.executeQuery(sql);
+        
         while (rs.next()) {
             capt=rs.getString("tipo_usuario");
             
@@ -232,6 +226,9 @@ public class Login extends javax.swing.JFrame {
          //   Administrador admin = new Administrador();
               Modulos modulos = new Modulos();
            //   Login login = new Login();
+            insert_activo_id_user ="select idusuario from usuario";
+                Statement stt = cxn.createStatement();
+                // ResultSet rsg = stt.executeQuery( insert_activo_id_user);
          JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
                     + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                     JOptionPane.INFORMATION_MESSAGE);
@@ -249,8 +246,10 @@ public class Login extends javax.swing.JFrame {
                     + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                     JOptionPane.INFORMATION_MESSAGE);
             auxiliar.setVisible(true);
+            insert_activo_id_user="Auxiliar";
                   
-        }   
+        }
+        
           if (user.equals("")) {
             JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
         }else{
@@ -274,10 +273,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextUsuarioActionPerformed
 
-
-    private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_BSalirActionPerformed
   private void setColor(JLabel jLabel_exit) {
       jLabel_exit.setBackground(new java.awt.Color(204,203,203));
   }
@@ -321,7 +316,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BIngresar;
-    private javax.swing.JButton BSalir;
     public static javax.swing.JPasswordField TextContraseña;
     public static javax.swing.JTextField TextUsuario;
     private javax.swing.JLabel jLabel1;
@@ -342,6 +336,9 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
 Connection cxn = conxlogin.getConnection();
+  public static String insert_activo_id_user="";  
+  
+
 
     
 }
