@@ -105,6 +105,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel_ingresosMouseClicked"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel_ingresosMouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel_ingresosMouseExited"/>
           </Events>
@@ -273,6 +274,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="home"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>

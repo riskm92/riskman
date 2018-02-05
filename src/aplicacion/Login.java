@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import metodos.Conectarbd;
 import metodos.Conexionbd;
 
-
 /**
  *
  * @author barcelona
@@ -24,13 +23,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-   
     public Login() {
-      initComponents();
+        initComponents();
         this.setLocationRelativeTo(null);
-     //   this.setUndecorated(false);
+        //   this.setUndecorated(false);
         //edite esta parte
-         
+
     }
 
     /**
@@ -186,13 +184,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextContraseñaActionPerformed
 
     private void BIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIngresarActionPerformed
-             
-  
-    String usu =TextUsuario.getText();
-    String pas=new String(TextContraseña.getPassword());
-    Ingresar(usu, pas);    
-      
-       /* String user = TextUsuario.getText();
+
+        String usu = TextUsuario.getText();
+        String pas = new String(TextContraseña.getPassword());
+        Ingresar(usu, pas);
+
+        /* String user = TextUsuario.getText();
         String pass = TextContraseña.getText();
         if (user.equals("")) {
             JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
@@ -209,76 +206,90 @@ public class Login extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_BIngresarActionPerformed
 
-    public void Ingresar(String user, String pass){
- 
-    String capt = "";
-   
-    String sql="SELECT * FROM usuario WHERE usuario='"+user+"' && password='"+pass+"'";
-    try {
-        Statement st = cxn.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        
-        while (rs.next()) {
-            capt=rs.getString("tipo_usuario");
-            
+    public void Ingresar(String user, String pass) {
+
+        String capt = "";
+        String id_usuario = "";
+        String sql = "SELECT * FROM usuario WHERE usuario='" + user + "' && password='" + pass + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+         
+            while (rs.next()) {
+                //capt = rs.getString("id,tipo_usuario");
+
+            }
+            if (capt.equals("Administrador")) {
+                //   Administrador admin = new Administrador();
+                   
+          // System.out.println("Admasd"+capt);
+                Modulos modulos = new Modulos();
+            //    System.out.println("Administrador"+capt);
+                //   Login login = new Login();
+                //  insert_activo_id_user = "select idusuario from usuario";
+                //    Statement st1 = cxn.createStatement();
+                //  st1.executeQuery(insert_activo_id_user);
+                JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
+                        + "satisfactoriamente al sistema", "Mensaje de bienvenida",
+                        JOptionPane.INFORMATION_MESSAGE);
+                modulos.setVisible(true);
+                dispose();
+                modulos.pack();
+
+                //  Administrador.labelconectado.setText(user);
+            }
+//            if (capt.equals("idusuario")) {
+//                id_usuario = rs.getString("idusuario");
+//                    System.out.println(id_usuario);
+//            }
+            if (capt.equals("Auxiliar")) {
+                Auxiliar auxiliar = new Auxiliar();
+                //  insert_activo_id_user = "select idusuario from usuario";
+                // Statement st2 = cxn.createStatement();
+                //  st2.executeQuery(insert_activo_id_user);
+                // id_usuario=rs.getString("idusuario");
+                JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
+                        + "satisfactoriamente al sistema", "Mensaje de bienvenida",
+                        JOptionPane.INFORMATION_MESSAGE);
+                auxiliar.setVisible(true);
+
+            }
+
+            if (user.equals("")) {
+                JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
+            } else {
+                if (pass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "debe ingresar la contraseña");
+                } else {
+                    if ((!capt.equals("Administrador")) && (!capt.equals("auxiliar"))) {
+                        //JOptionPane.showMessageDialog(null, "no existe datos");
+                        JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                                + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(capt.equals("Administrador")){
-         //   Administrador admin = new Administrador();
-              Modulos modulos = new Modulos();
-           //   Login login = new Login();
-            insert_activo_id_user ="select idusuario from usuario";
-                Statement stt = cxn.createStatement();
-                // ResultSet rsg = stt.executeQuery( insert_activo_id_user);
-         JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
-                    + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-            modulos.setVisible(true);
-            dispose();
-            modulos.pack();
-             
-              //  Administrador.labelconectado.setText(user);
-          
-           
-        }
-        if(capt.equals("Auxiliar")){
-            Auxiliar auxiliar =new Auxiliar();
-             JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
-                    + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-            auxiliar.setVisible(true);
-            insert_activo_id_user="Auxiliar";
-                  
-        }
+       // insert_activo_id_user = Integer.parseInt(id_usuario);
         
-          if (user.equals("")) {
-            JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
-        }else{
-        if (pass.equals("")) {
-            JOptionPane.showMessageDialog(null, "debe ingresar la contraseña");
-        }else{
-            if((!capt.equals("Administrador")) && (!capt.equals("auxiliar"))){
-            //JOptionPane.showMessageDialog(null, "no existe datos");
-               JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
-                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
-                    JOptionPane.ERROR_MESSAGE);
-         }
-        
-        } }
-    } catch (SQLException ex) {
-        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+
     }
-} 
-    
+
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextUsuarioActionPerformed
 
-  private void setColor(JLabel jLabel_exit) {
-      jLabel_exit.setBackground(new java.awt.Color(204,203,203));
-  }
-  private void resetColor(JLabel jLabel_exit) {
-      jLabel_exit.setBackground(new java.awt.Color(204,203,203));
-  }
+    private void setColor(JLabel jLabel_exit) {
+        jLabel_exit.setBackground(new java.awt.Color(204, 203, 203));
+    }
+
+    private void resetColor(JLabel jLabel_exit) {
+        jLabel_exit.setBackground(new java.awt.Color(204, 203, 203));
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -335,10 +346,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
-Connection cxn = conxlogin.getConnection();
-  public static String insert_activo_id_user="";  
-  
+    Connection cxn = conxlogin.getConnection();
+    public int insert_activo_id_user = 0;
 
-
-    
 }

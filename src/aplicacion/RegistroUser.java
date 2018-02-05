@@ -24,60 +24,61 @@ import metodos.Conexionbd;
  * @author Leonardo
  */
 public class RegistroUser extends javax.swing.JPanel {
-DefaultTableModel modelo;
-DefaultTableModel model;
+
+    DefaultTableModel modelo;
+    DefaultTableModel model;
+
     /**
      * Creates new form RegistroUser
      */
-    public RegistroUser() { 
-            initComponents();
-        
+    public RegistroUser() {
+        initComponents();
+
         llenartabla();
         Generarnumeracion();
         //this.setLocationRelativeTo(null);
         jTable_registro.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-           @Override
-          public void valueChanged(ListSelectionEvent e) {
-          
-               try {
-                   String sql ="";
-                   int fila = jTable_registro.getSelectedRow();
-                //   sql="select idusuario, nombres, apellidos, correo, celular, institucion, cedula, usuario, password,tipo_usuario from usuario";
-                 // Statement st = cxn.createStatement();
-                  //ResultSet rs = st.executeQuery(sql);
-                  
-         //    Statement sent=cxn.createStatement();
-           // int n=sent.executeQuery(sql);
-            if (jTable_registro.getSelectedRow() !=-1) {
-                     //int fila = jTable_registro.getSelectedRow();
-                      jTextField_id.setText(jTable_registro.getValueAt(fila, 0).toString());
-                      jTextField_nombres.setText(jTable_registro.getValueAt(fila, 1).toString()); 
-                      jTextField_apellidos.setText(jTable_registro.getValueAt(fila, 2).toString());   
-                      jTextField_correo.setText(jTable_registro.getValueAt(fila, 3).toString());   
-                      jTextField_celular.setText(jTable_registro.getValueAt(fila, 4).toString());   
-                      jTextField_institucion.setText(jTable_registro.getValueAt(fila, 5).toString());   
-                      jTextField_cedula.setText(jTable_registro.getValueAt(fila, 6).toString());   
-                      jTextField_usuario.setText(jTable_registro.getValueAt(fila, 7).toString());   
-                      jPassword.setText(jTable_registro.getValueAt(fila, 8).toString());   
-                      jComboBox_tipo.setSelectedItem(jTable_registro.getValueAt(fila, 9).toString()); 
-                   // jTextField_nombres.setText(jTable_registro.getValueAt(fila, 2).toString());   
-           
-           }
-            
-               } catch (Exception ex) {
-                   Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
-                  
-               }
-                    
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+
+                try {
+                    String sql = "";
+                    int fila = jTable_registro.getSelectedRow();
+                    //   sql="select idusuario, nombres, apellidos, correo, celular, institucion, cedula, usuario, password,tipo_usuario from usuario";
+                    // Statement st = cxn.createStatement();
+                    //ResultSet rs = st.executeQuery(sql);
+
+                    //    Statement sent=cxn.createStatement();
+                    // int n=sent.executeQuery(sql);
+                    if (jTable_registro.getSelectedRow() != -1) {
+                        //int fila = jTable_registro.getSelectedRow();
+                        jTextField_id.setText(jTable_registro.getValueAt(fila, 0).toString());
+                        jTextField_nombres.setText(jTable_registro.getValueAt(fila, 1).toString());
+                        jTextField_apellidos.setText(jTable_registro.getValueAt(fila, 2).toString());
+                        jTextField_correo.setText(jTable_registro.getValueAt(fila, 3).toString());
+                        jTextField_celular.setText(jTable_registro.getValueAt(fila, 4).toString());
+                        jTextField_institucion.setText(jTable_registro.getValueAt(fila, 5).toString());
+                        jTextField_cedula.setText(jTable_registro.getValueAt(fila, 6).toString());
+                        jTextField_usuario.setText(jTable_registro.getValueAt(fila, 7).toString());
+                        jPassword.setText(jTable_registro.getValueAt(fila, 8).toString());
+                        jComboBox_tipo.setSelectedItem(jTable_registro.getValueAt(fila, 9).toString());
+                        // jTextField_nombres.setText(jTable_registro.getValueAt(fila, 2).toString());   
+
+                    }
+
+                } catch (Exception ex) {
+                    Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+
                 }
-                
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-           //}
-       });
+
+            }
+
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //}
+        });
     }
-    
-    
-    void Deshabilitar(){
+
+    void Deshabilitar() {
         jTextField_id.setEditable(false);
         jTextField_nombres.setEditable(false);
         jTextField_apellidos.setEditable(false);
@@ -89,7 +90,8 @@ DefaultTableModel model;
         jPassword.setEditable(false);
         jComboBox_tipo.setEnabled(false);
     }
-    void Limpiar(){
+
+    void Limpiar() {
         //jTextField_id.setText("");
         jTextField_nombres.setText("");
         jTextField_apellidos.setText("");
@@ -101,10 +103,11 @@ DefaultTableModel model;
         jPassword.setText("");
         // jComboBox_tipo.setSelectedItem(0);
         jComboBox_tipo.setSelectedIndex(0);
-       // listadesplegable1.setSelectedIndex(0);//opción1
-      //  listadesplegable2.setSelectedItem("Seleccione");//opción2
+        // listadesplegable1.setSelectedIndex(0);//opción1
+        //  listadesplegable2.setSelectedItem("Seleccione");//opción2
     }
-    void Habilitar(){
+
+    void Habilitar() {
         jTextField_id.setEditable(true);
         jTextField_nombres.setEditable(true);
         jTextField_apellidos.setEditable(true);
@@ -116,65 +119,62 @@ DefaultTableModel model;
         jPassword.setEditable(true);
         jComboBox_tipo.setEnabled(true);
     }
-     void Generarnumeracion()
-    {
-     String SQL="select  max(idusuario) from usuario";
-        
-          int c=0;
-          
+
+    void Generarnumeracion() {
+        String SQL = "select  max(idusuario) from usuario";
+
+        int c = 0;
+
         try {
-           Statement st = cxn.createStatement();
-           ResultSet rs=st.executeQuery(SQL);
-            while(rs.next())
-            {              
-                 c=rs.getInt(1);
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            while (rs.next()) {
+                c = rs.getInt(1);
             }
-      
-            if(c==0){
+
+            if (c == 0) {
                 jTextField_id.setText("1");
-            }
-            else
-            {
-                
-              jTextField_id.setText(""+(c+1));
-         
+            } else {
+
+                jTextField_id.setText("" + (c + 1));
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+
     }
-    void llenartabla(){
-   String [] titulos= {"Id","Nombres","Apellidos","Correo","Celular","Institucion","Cedula","Usuario","Password","Tipo Usuario"};
-   modelo=new  DefaultTableModel(null,titulos);   
-   String datos []= new String[10];
-   String sql="SELECT idusuario,nombres,apellidos,correo,celular,institucion,cedula,usuario,password,tipo_usuario FROM usuario"; 
+
+    void llenartabla() {
+        String[] titulos = {"Id", "Nombres", "Apellidos", "Correo", "Celular", "Institucion", "Cedula", "Usuario", "Password", "Tipo Usuario"};
+        modelo = new DefaultTableModel(null, titulos);
+        String datos[] = new String[10];
+        String sql = "SELECT idusuario,nombres,apellidos,correo,celular,institucion,cedula,usuario,password,tipo_usuario FROM usuario";
         try {
             Statement st = cxn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            { 
-                datos[0]=rs.getString("idusuario");
-                datos[1]=rs.getString("nombres");
-                datos[2]= rs.getString("apellidos");
-                datos[3]= rs.getString("correo");
-                datos[4]= rs.getString("celular");
-                datos[5]= rs.getString("institucion");
-                datos[6]= rs.getString("cedula");
-                datos[7]= rs.getString("usuario");
-                datos[8]= rs.getString("password");
-                datos[9]= rs.getString("tipo_usuario");
-                
+            while (rs.next()) {
+                datos[0] = rs.getString("idusuario");
+                datos[1] = rs.getString("nombres");
+                datos[2] = rs.getString("apellidos");
+                datos[3] = rs.getString("correo");
+                datos[4] = rs.getString("celular");
+                datos[5] = rs.getString("institucion");
+                datos[6] = rs.getString("cedula");
+                datos[7] = rs.getString("usuario");
+                datos[8] = rs.getString("password");
+                datos[9] = rs.getString("tipo_usuario");
+
                 modelo.addRow(datos);
             }
             jTable_registro.setModel(modelo);
         } catch (Exception ex) {
-            System.out.println(""+  ex);
+            System.out.println("" + ex);
             Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
-  
-   } 
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -539,28 +539,27 @@ DefaultTableModel model;
     }//GEN-LAST:event_jComboBox_tipoActionPerformed
 
     private void jButton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modificarActionPerformed
-        
-        int id = Integer.parseInt(jTextField_id.getText().toString()); 
-         String nombres =jTextField_nombres.getText();
-         String apellidos =jTextField_apellidos.getText();
-         String correo =jTextField_correo.getText();
-         String celular =jTextField_celular.getText();
-         String institucion =jTextField_institucion.getText();
-         String cedula =jTextField_cedula.getText();
-         String usuario =jTextField_usuario.getText();
-         String password =new String(jPassword.getPassword());
-         String tipo_usuario =jComboBox_tipo.getModel().getSelectedItem().toString();
-            
-        try{
-            String sql="Update usuario set nombres='"+nombres+"', apellidos='"+apellidos+"', "
-                    + "correo='"+correo+"', celular='"+celular+"', institucion='"+institucion+"', "
-                    + "cedula='"+cedula+"', usuario='"+usuario+"', password='"+password+"', "
-                    + "tipo_usuario='"+tipo_usuario+"' where  idusuario='"+id+"'";
-                 
-          
+
+        int id = Integer.parseInt(jTextField_id.getText().toString());
+        String nombres = jTextField_nombres.getText();
+        String apellidos = jTextField_apellidos.getText();
+        String correo = jTextField_correo.getText();
+        String celular = jTextField_celular.getText();
+        String institucion = jTextField_institucion.getText();
+        String cedula = jTextField_cedula.getText();
+        String usuario = jTextField_usuario.getText();
+        String password = new String(jPassword.getPassword());
+        String tipo_usuario = jComboBox_tipo.getModel().getSelectedItem().toString();
+
+        try {
+            String sql = "Update usuario set nombres='" + nombres + "', apellidos='" + apellidos + "', "
+                    + "correo='" + correo + "', celular='" + celular + "', institucion='" + institucion + "', "
+                    + "cedula='" + cedula + "', usuario='" + usuario + "', password='" + password + "', "
+                    + "tipo_usuario='" + tipo_usuario + "' where  idusuario='" + id + "'";
+
 //            int fila=jTable_registro.getSelectedRow();
 //            String dato=(String)jTable_registro.getValueAt(fila,0);
-            PreparedStatement ps=cxn.prepareCall(sql);
+            PreparedStatement ps = cxn.prepareCall(sql);
 //            ps.setString(1,jTextField_nombres.getText());
 ////            ps.setString(2,jTextField_apellidos.getText());
 ////            ps.setString(3,correo.getText());
@@ -572,14 +571,12 @@ DefaultTableModel model;
 ////            ps.setString(9,jComboBox_tipo.getModel().getSelectedItem().toString());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "datos modificados");
-               Limpiar();
-               llenartabla();
-               Generarnumeracion();
+            Limpiar();
+            llenartabla();
+            Generarnumeracion();
             //BasedeDatos
 
 //           ps.setString(9,dato);//la llamada sql se muestra en la tabla
-
-
 //            if(ps.executeQuery()){
 //                
 //            }
@@ -590,38 +587,38 @@ DefaultTableModel model;
 //                JOptionPane.showMessageDialog(null, "datos modificados");
 //
 //            }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "error"+ e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
         }
-     
+
 
     }//GEN-LAST:event_jButton_modificarActionPerformed
 
     private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
 
-        try{
-            int fila=jTable_registro.getSelectedRow();
-            String sql="delete from usuario where idusuario="+jTable_registro.getValueAt(fila,0);
+        try {
+            int fila = jTable_registro.getSelectedRow();
+            String sql = "delete from usuario where idusuario=" + jTable_registro.getValueAt(fila, 0);
 
-            Statement sent=cxn.createStatement();
-            int n=sent.executeUpdate(sql);
-            if(n>0){
+            Statement sent = cxn.createStatement();
+            int n = sent.executeUpdate(sql);
+            if (n > 0) {
 
                 JOptionPane.showMessageDialog(null, "datos eliminados");
                 llenartabla();
                 Limpiar();
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "error"+e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
         }
 
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
-        String sql="";
-        sql="INSERT INTO usuario(idusuario,nombres,apellidos,correo,celular,institucion,cedula,usuario,password,tipo_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        try{
-            
+        String sql = "";
+        sql = "INSERT INTO usuario(idusuario,nombres,apellidos,correo,celular,institucion,cedula,usuario,password,tipo_usuario) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        try {
+
             int id = Integer.parseInt(jTextField_id.getText().toString());
             int celular = Integer.parseInt(jTextField_celular.getText().toString());
             int cedula = Integer.parseInt(jTextField_cedula.getText().toString());
@@ -637,16 +634,16 @@ DefaultTableModel model;
             dato.setInt(7, cedula);
             dato.setString(8, jTextField_usuario.getText().toString());
             dato.setString(9, new String(jPassword.getPassword()));
-            dato.setString(10,jComboBox_tipo.getModel().getSelectedItem().toString());
+            dato.setString(10, jComboBox_tipo.getModel().getSelectedItem().toString());
             dato.executeUpdate();
 
             //btn_nuevo.setEnabled(true);
-            JOptionPane.showMessageDialog(null," Registro Ingresado Correctamente");
+            JOptionPane.showMessageDialog(null, " Registro Ingresado Correctamente");
             Generarnumeracion();
             Limpiar();
             llenartabla();
-        }catch(SQLException e){
-            System.out.println("Error => Problema al Insertar Registro " + e );
+        } catch (SQLException e) {
+            System.out.println("Error => Problema al Insertar Registro " + e);
         }
     }//GEN-LAST:event_jButton_guardarActionPerformed
 
@@ -661,7 +658,7 @@ DefaultTableModel model;
     private void jTable_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_registroMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable_registroMouseClicked
- public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -722,6 +719,6 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField_usuario;
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
-Connection cxn = conxlogin.getConnection();
-String idfila="";
+    Connection cxn = conxlogin.getConnection();
+    String idfila = "";
 }
