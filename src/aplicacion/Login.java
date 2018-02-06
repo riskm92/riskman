@@ -24,13 +24,14 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+    //    Textid.setVisible(false);
         initComponents();
         this.setLocationRelativeTo(null);
         //   this.setUndecorated(false);
         //edite esta parte
-
+Textid.setVisible(false);
     }
-
+  public String insert_activo_id_user ;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,10 +55,11 @@ public class Login extends javax.swing.JFrame {
         BIngresar = new javax.swing.JButton();
         TextContraseña = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
-        TextUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+        Textid = new javax.swing.JTextField();
+        TextUsuario = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -140,6 +142,28 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 180, 10));
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 30, 30));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pass.png"))); // NOI18N
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
+
+        jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
+        jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
+
+        Textid.setBackground(new java.awt.Color(233, 235, 238));
+        Textid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Textid.setToolTipText("");
+        Textid.setBorder(null);
+        Textid.setName(""); // NOI18N
+        Textid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextidActionPerformed(evt);
+            }
+        });
+        jPanel4.add(Textid, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 140, 30));
+
         TextUsuario.setBackground(new java.awt.Color(233, 235, 238));
         TextUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TextUsuario.setToolTipText("");
@@ -151,17 +175,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel4.add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 140, 30));
-        TextUsuario.getAccessibleContext().setAccessibleName("");
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 30, 30));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pass.png"))); // NOI18N
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
-
-        jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
-        jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,7 +218,7 @@ public class Login extends javax.swing.JFrame {
             }
         }*/
     }//GEN-LAST:event_BIngresarActionPerformed
-
+  
     public void Ingresar(String user, String pass) {
 
         String capt = "";
@@ -214,21 +227,40 @@ public class Login extends javax.swing.JFrame {
         try {
             Statement st = cxn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-         
+            //   insert_activo_id_user=rs.getString("idusuario");
+
+//            while(rs.next()){
+//                     //Textid.setText(rs.getString("idusuario"));
+//            }
             while (rs.next()) {
-                //capt = rs.getString("id,tipo_usuario");
+                capt = rs.getString("tipo_usuario");
+                //insert_activo_id_user=rs.getString("idusuario");
+
+                 // insert_activo_id_user=rs.getString("idusuario");
+                //Modulos.Text_id.setText(rs.getString("idusuario"));
+                //ing.id.setText(rs.getString("idusuario"));
+                //insert_activo_id_user=rs.getString("idusuario");
+                  Textid.setText(rs.getString("idusuario"));
+                
+             //   Modulos.Text_id.setText(Textid.getText());
+                //Modulos.Text_id
+                  //JOptionPane.showMessageDialog(null, insert_activo_id_user);
 
             }
             if (capt.equals("Administrador")) {
-                //   Administrador admin = new Administrador();
-                   
-          // System.out.println("Admasd"+capt);
+                //  Administrador admin = new Administrador();
+                //Textid.setText= rs
+                //   rs.getString(1, Textid.setText());
+//                    insert_activo_id_user=rs.getString("idusuario");
+                //                  JOptionPane.showMessageDialog(null, insert_activo_id_user);
+                //       Textid.setText(rs.getString("idusuario"));
+                //       dato.setString(2, jTextField_nombres.getText().toString());
                 Modulos modulos = new Modulos();
-            //    System.out.println("Administrador"+capt);
                 //   Login login = new Login();
                 //  insert_activo_id_user = "select idusuario from usuario";
                 //    Statement st1 = cxn.createStatement();
                 //  st1.executeQuery(insert_activo_id_user);
+
                 JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
                         + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                         JOptionPane.INFORMATION_MESSAGE);
@@ -238,10 +270,7 @@ public class Login extends javax.swing.JFrame {
 
                 //  Administrador.labelconectado.setText(user);
             }
-//            if (capt.equals("idusuario")) {
-//                id_usuario = rs.getString("idusuario");
-//                    System.out.println(id_usuario);
-//            }
+         
             if (capt.equals("Auxiliar")) {
                 Auxiliar auxiliar = new Auxiliar();
                 //  insert_activo_id_user = "select idusuario from usuario";
@@ -273,10 +302,13 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-       // insert_activo_id_user = Integer.parseInt(id_usuario);
-        
+        //insert_activo_id_user = Integer.parseInt(id_usuario);
 
     }
+
+    private void TextidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextidActionPerformed
 
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
@@ -326,9 +358,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BIngresar;
+    public static javax.swing.JButton BIngresar;
     public static javax.swing.JPasswordField TextContraseña;
     public static javax.swing.JTextField TextUsuario;
+    public static javax.swing.JTextField Textid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -338,7 +371,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public static javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -347,6 +380,9 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
-    public int insert_activo_id_user = 0;
-
+  
+    
+    //Modulos.AccessibleAWTComponent
+//    Modulos md=new Modulos();
+  
 }

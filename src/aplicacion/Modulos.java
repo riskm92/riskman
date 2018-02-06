@@ -20,6 +20,13 @@ public class Modulos extends javax.swing.JFrame {
     public Modulos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Modulos.Text_id.setText(Textid.getText());
+        //Login.Textid.getText(Text_id.setText(string));
+          //Text_id.setText(Login.Textid.getText());
+          //Login.TextUsuario.getText()
+          Text_id.setVisible(false);
+          String dd=Login.Textid.getText();
+          Text_id.setText(dd);
     }
 
     /**
@@ -54,6 +61,7 @@ public class Modulos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Text_id = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -88,7 +96,7 @@ public class Modulos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 120));
@@ -164,7 +172,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_homeLayout.setVerticalGroup(
             jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +181,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 130, 120));
@@ -293,7 +301,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addGroup(jPanel_aplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_aplicacionLayout.setVerticalGroup(
             jPanel_aplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +310,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel_aplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 130, 120));
@@ -333,7 +341,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addGroup(jPanel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_reportesLayout.setVerticalGroup(
             jPanel_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,6 +370,7 @@ public class Modulos extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, -1, -1));
+        jPanel2.add(Text_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -530,6 +539,7 @@ public class Modulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField Text_id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -545,7 +555,7 @@ public class Modulos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_analisis;
     private javax.swing.JPanel jPanel_aplicacion;

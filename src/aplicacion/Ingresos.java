@@ -5,6 +5,7 @@
  */
 package aplicacion;
 
+import static aplicacion.Modulos.Text_id;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,8 +31,9 @@ public class Ingresos extends javax.swing.JFrame {
     public Ingresos() {
         initComponents();
         llenartabla();
-        id.setVisible(false);
+        //  id.setVisible(true);
 
+        // id.setText(dd);
         this.setLocationRelativeTo(null);
         jTable_activo.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -44,7 +46,7 @@ public class Ingresos extends javax.swing.JFrame {
                     if (jTable_activo.getSelectedRow() != -1) {
                         //int fila = jTable_registro.getSelectedRow();
 
-                        id.setText(jTable_activo.getValueAt(fila, 1).toString());
+                        identificador.setText(jTable_activo.getValueAt(fila, 1).toString());
                         cantidad.setText(jTable_activo.getValueAt(fila, 2).toString());
                         nombre_activo.setText(jTable_activo.getValueAt(fila, 3).toString());
                         tipo_activo.setSelectedItem(jTable_activo.getValueAt(fila, 4).toString());
@@ -64,7 +66,7 @@ public class Ingresos extends javax.swing.JFrame {
         });
     }
 
-    void Generarnumeracion() {
+    /*void Generarnumeracion() {
         String SQL = "select  max(idactivo) from activo";
 
         int c = 0;
@@ -88,8 +90,7 @@ public class Ingresos extends javax.swing.JFrame {
             Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
-
+    }*/
     void llenartabla() {
         String[] titulos = {"Id", "Identificador", "Cantidad", "Activo", "Tipo Activo", "Aplicacion"};
 
@@ -118,7 +119,7 @@ public class Ingresos extends javax.swing.JFrame {
     }
 
     void Deshabilitar() {
-        id.setEditable(false);
+        //  id.setEditable(false);
         cantidad.setEditable(false);
         nombre_activo.setEditable(false);
         tipo_activo.setEnabled(false);
@@ -127,7 +128,7 @@ public class Ingresos extends javax.swing.JFrame {
 
     void Limpiar() {
         //jTextField_id.setText("");
-        id.setText("");
+        identificador.setText("");
         cantidad.setText("");
         nombre_activo.setText("");
         tipo_activo.setSelectedIndex(0);
@@ -136,7 +137,7 @@ public class Ingresos extends javax.swing.JFrame {
     }
 
     void Habilitar() {
-        id.setEditable(true);
+//        id.setEditable(true);
         cantidad.setEditable(true);
         nombre_activo.setEditable(true);
         tipo_activo.setEnabled(true);
@@ -161,7 +162,6 @@ public class Ingresos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         nombre_activo = new javax.swing.JTextField();
         cantidad = new javax.swing.JTextField();
-        id = new javax.swing.JTextField();
         tipo_activo = new javax.swing.JComboBox<>();
         jButton_guardar = new javax.swing.JButton();
         jButton_modificar = new javax.swing.JButton();
@@ -227,15 +227,7 @@ public class Ingresos extends javax.swing.JFrame {
         });
         jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 140, -1));
 
-        id.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        jPanel1.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 30, -1));
-
-        tipo_activo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona...", "DI", "SW", "SW", "HW", "COM", "Media", "AUX", "INST", "PSL" }));
+        tipo_activo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona...", "DI", "SW", "HW", "COM", "Media", "AUX", "INST", "PSL" }));
         tipo_activo.setToolTipText("");
         jPanel1.add(tipo_activo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
@@ -393,46 +385,82 @@ public class Ingresos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cantidadActionPerformed
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
     private void jButton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modificarActionPerformed
 
+        //int id = Integer.parseInt(jTextField_id.getText().toString());
+           int fila = jTable_activo.getSelectedRow();
+                   
+                     //jTextField_id.setText(jTable_registro.getValueAt(fila, 0).toString());
+        String iden = identificador.getText();
+        int cant = Integer.parseInt(cantidad.getText());
+        String nombre_ac = nombre_activo.getText();
+        String tipo_ac = tipo_activo.getModel().getSelectedItem().toString();
+         String apli = aplicacion.getModel().getSelectedItem().toString();
+
+        try {
+            String sql = "Update activo set identificador='" + iden + "', Cantidad='" + cant + "', "
+                    + "nombre_activo='" + nombre_ac + "', tipo_activo='" + tipo_ac + "', aplicacion='" + apli +"' "
+                    + "where  idactivo";
+
+
+            PreparedStatement ps = cxn.prepareCall(sql);
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "datos modificados");
+            Limpiar();
+            llenartabla();
+         
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+
+
+                               
 
     }//GEN-LAST:event_jButton_modificarActionPerformed
 
     private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
+        //Login lo = new Login();
+        // String ll =lo.Textid.getText();
+        //id.setText(lo.Textid.getText().toString());
 
+        //int id_ua =Integer.parseInt(lo.insert_activo_id_user);
+        //JOptionPane.showMessageDialog(null, id);
 
     }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
-        Login lo = new Login();
-
+        //Login lo = new Login();
+        //int id_ua = Integer.parseInt(lo.insert_activo_id_user);
+        // JOptionPane.showMessageDialog(null, id_ua);
         // int idusuario_activo=Integer.parseInt(lo.insert_activo_id_user);
-        int id_user_ac = (lo.insert_activo_id_user);
+        //  int id_user_ac = (lo.insert_activo_id_user);
         String sql = "";
-        
 
-        sql = "INSERT INTO activo(identificador, Cantidad,nombre_activo, tipo_activo, aplicacion, usuario_idusuario)"
-                + " VALUES (?,?,?,?,'" + id_user_ac + "')";
-        System.out.println("este es el dato" + id_user_ac);
+        sql = "INSERT INTO activo(identificador, Cantidad, nombre_activo, tipo_activo, aplicacion, usuario_idusuario)"
+                + " VALUES (?,?,?,?,?,?)";
+//        System.out.println("este es el dato" + id_user_ac);
         try {
 
             int cant = Integer.parseInt(cantidad.getText().toString());
+            //  int in_us_ac =  Integer.parseInt(Login.Textid.getText());
             // int idd = Integer.parseInt(id.getText().toString());
             //     int cedula = Integer.parseInt(jTextField_cedula.getText().toString());
 
             PreparedStatement dato = cxn.prepareStatement(sql);
             //dato.setInt(1, idd);
-
+            //String dd = Login.Textid.getText();
+            //    int in_us_ac = Integer.parseInt(dd);
+            //Text_id.setText(dd);
+            // String dd = Login.Textid.getText();
+            //int in_us=Integer.parseInt(dd);
             dato.setString(1, identificador.getText().toString());
             dato.setInt(2, cant);
             dato.setString(3, nombre_activo.getText().toString());
             dato.setString(4, tipo_activo.getModel().getSelectedItem().toString());
             dato.setString(5, aplicacion.getModel().getSelectedItem().toString());
-
+            dato.setInt(6, Integer.parseInt(Modulos.Text_id.getText().toString()));
             dato.executeUpdate();
 
             //btn_nuevo.setEnabled(true);
@@ -446,7 +474,7 @@ public class Ingresos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_guardarActionPerformed
 
     private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
-
+        Limpiar();
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jButton_nuevoActionPerformed
@@ -539,6 +567,7 @@ public class Ingresos extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new Ingresos().setVisible(true);
             }
@@ -548,7 +577,6 @@ public class Ingresos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> aplicacion;
     public static javax.swing.JTextField cantidad;
-    public static javax.swing.JTextField id;
     public static javax.swing.JTextField identificador;
     private javax.swing.JButton jButton_eliminar;
     private javax.swing.JButton jButton_eliminar1;
@@ -574,4 +602,6 @@ public class Ingresos extends javax.swing.JFrame {
         Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
     String idfila = "";
+    Login lg = new Login();
+   
 }

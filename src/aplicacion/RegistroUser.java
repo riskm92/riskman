@@ -5,7 +5,6 @@
  */
 package aplicacion;
 
-import static aplicacion.Login.TextUsuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +17,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import metodos.Conexionbd;
+//import static aplicacion.Login.Textid;
 
 /**
  *
@@ -44,6 +44,7 @@ public class RegistroUser extends javax.swing.JPanel {
                 try {
                     String sql = "";
                     int fila = jTable_registro.getSelectedRow();
+                   
                     //   sql="select idusuario, nombres, apellidos, correo, celular, institucion, cedula, usuario, password,tipo_usuario from usuario";
                     // Statement st = cxn.createStatement();
                     //ResultSet rs = st.executeQuery(sql);
@@ -587,7 +588,7 @@ public class RegistroUser extends javax.swing.JPanel {
 //                JOptionPane.showMessageDialog(null, "datos modificados");
 //
 //            }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error" + e.getMessage());
         }
 
