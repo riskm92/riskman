@@ -218,7 +218,7 @@ Textid.setVisible(false);
             }
         }*/
     }//GEN-LAST:event_BIngresarActionPerformed
-  
+
     public void Ingresar(String user, String pass) {
 
         String capt = "";
