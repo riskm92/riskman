@@ -220,12 +220,13 @@ public class Login extends javax.swing.JFrame {
  
     String capt = "";
    
-    String sql="SELECT * FROM usuarios WHERE usuario='"+user+"' && contraseña='"+pass+"'";
+    String sql="SELECT * FROM usuario WHERE usuario='"+user+"' && contraseña='"+pass+"'";
     try {
         Statement st = cxn.createStatement();
         ResultSet rs = st.executeQuery(sql);
         while (rs.next()) {
             capt=rs.getString("tipo_usuario");
+             System.out.println(capt);
             
         }
         if(capt.equals("Administrador")){
