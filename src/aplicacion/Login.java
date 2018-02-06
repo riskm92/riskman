@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import metodos.Conectarbd;
 import metodos.Conexionbd;
 
-
 /**
  *
  * @author barcelona
@@ -27,7 +26,9 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //   this.setUndecorated(false);
         //edite esta parte
+
     }
 
     /**
@@ -56,7 +57,6 @@ public class Login extends javax.swing.JFrame {
         TextUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        BSalir = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -73,7 +73,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(152, 189, 219));
         setLocation(new java.awt.Point(0, 0));
-        setUndecorated(true);
+        setLocationByPlatform(true);
 
         jPanel4.setBackground(new java.awt.Color(233, 235, 238));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,17 +159,6 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pass.png"))); // NOI18N
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
-        BSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Multiply_20px.png"))); // NOI18N
-        BSalir.setBorder(null);
-        BSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        BSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BSalirActionPerformed(evt);
-            }
-        });
-        jPanel4.add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 30, 30));
-
         jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
@@ -178,7 +167,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,13 +184,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextContraseñaActionPerformed
 
     private void BIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIngresarActionPerformed
-             
-  
-    String usu =TextUsuario.getText();
-    String pas=new String(TextContraseña.getPassword());
-    Ingresar(usu, pas);    
-      
-       /* String user = TextUsuario.getText();
+
+        String usu = TextUsuario.getText();
+        String pas = new String(TextContraseña.getPassword());
+        Ingresar(usu, pas);
+
+        /* String user = TextUsuario.getText();
         String pass = TextContraseña.getText();
         if (user.equals("")) {
             JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
@@ -215,76 +205,93 @@ public class Login extends javax.swing.JFrame {
             }
         }*/
     }//GEN-LAST:event_BIngresarActionPerformed
-  
-    public void Ingresar(String user, String pass){
- 
-    String capt = "";
-   
-    String sql="SELECT * FROM usuario WHERE usuario='"+user+"' && contraseña='"+pass+"'";
-    try {
-        Statement st = cxn.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        while (rs.next()) {
-            capt=rs.getString("tipo_usuario");
-             System.out.println(capt);
-            
+
+
+    public void Ingresar(String user, String pass) {
+
+        String capt = "";
+        String id_usuario = "";
+        String sql = "SELECT * FROM usuario WHERE usuario='" + user + "' && password='" + pass + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+         
+            while (rs.next()) {
+                //capt = rs.getString("id,tipo_usuario");
+
+            }
+            if (capt.equals("Administrador")) {
+                //   Administrador admin = new Administrador();
+                   
+          // System.out.println("Admasd"+capt);
+                Modulos modulos = new Modulos();
+            //    System.out.println("Administrador"+capt);
+                //   Login login = new Login();
+                //  insert_activo_id_user = "select idusuario from usuario";
+                //    Statement st1 = cxn.createStatement();
+                //  st1.executeQuery(insert_activo_id_user);
+                JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
+                        + "satisfactoriamente al sistema", "Mensaje de bienvenida",
+                        JOptionPane.INFORMATION_MESSAGE);
+                modulos.setVisible(true);
+                dispose();
+                modulos.pack();
+
+                //  Administrador.labelconectado.setText(user);
+            }
+//            if (capt.equals("idusuario")) {
+//                id_usuario = rs.getString("idusuario");
+//                    System.out.println(id_usuario);
+//            }
+            if (capt.equals("Auxiliar")) {
+                Auxiliar auxiliar = new Auxiliar();
+                //  insert_activo_id_user = "select idusuario from usuario";
+                // Statement st2 = cxn.createStatement();
+                //  st2.executeQuery(insert_activo_id_user);
+                // id_usuario=rs.getString("idusuario");
+                JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
+                        + "satisfactoriamente al sistema", "Mensaje de bienvenida",
+                        JOptionPane.INFORMATION_MESSAGE);
+                auxiliar.setVisible(true);
+
+            }
+
+            if (user.equals("")) {
+                JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
+            } else {
+                if (pass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "debe ingresar la contraseña");
+                } else {
+                    if ((!capt.equals("Administrador")) && (!capt.equals("auxiliar"))) {
+                        //JOptionPane.showMessageDialog(null, "no existe datos");
+                        JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                                + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+
         }
-        if(capt.equals("Administrador")){
-         //   Administrador admin = new Administrador();
-              Modulos modulos = new Modulos();
-           //   Login login = new Login();
-         JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
-                    + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-            modulos.setVisible(true);
-            dispose();
-            modulos.pack();
-             
-              //  Administrador.labelconectado.setText(user);
-          
-           
-        }
-        if(capt.equals("Auxiliar")){
-            Auxiliar auxiliar =new Auxiliar();
-             JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
-                    + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-            auxiliar.setVisible(true);
-                  
-        }   
-          if (user.equals("")) {
-            JOptionPane.showMessageDialog(null, "debe ingresar el usuario");
-        }else{
-        if (pass.equals("")) {
-            JOptionPane.showMessageDialog(null, "debe ingresar la contraseña");
-        }else{
-            if((!capt.equals("Administrador")) && (!capt.equals("auxiliar"))){
-            //JOptionPane.showMessageDialog(null, "no existe datos");
-               JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
-                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
-                    JOptionPane.ERROR_MESSAGE);
-         }
+       // insert_activo_id_user = Integer.parseInt(id_usuario);
         
-        } }
-    } catch (SQLException ex) {
-        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+
     }
-} 
-    
+
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextUsuarioActionPerformed
 
+    private void setColor(JLabel jLabel_exit) {
+        jLabel_exit.setBackground(new java.awt.Color(204, 203, 203));
+    }
 
-    private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_BSalirActionPerformed
-  private void setColor(JLabel jLabel_exit) {
-      jLabel_exit.setBackground(new java.awt.Color(204,203,203));
-  }
-  private void resetColor(JLabel jLabel_exit) {
-      jLabel_exit.setBackground(new java.awt.Color(204,203,203));
-  }
+    private void resetColor(JLabel jLabel_exit) {
+        jLabel_exit.setBackground(new java.awt.Color(204, 203, 203));
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -322,7 +329,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BIngresar;
-    private javax.swing.JButton BSalir;
     public static javax.swing.JPasswordField TextContraseña;
     public static javax.swing.JTextField TextUsuario;
     private javax.swing.JLabel jLabel1;
@@ -342,7 +348,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
-Connection cxn = conxlogin.getConnection();
+    Connection cxn = conxlogin.getConnection();
+    public int insert_activo_id_user = 0;
 
-    
 }

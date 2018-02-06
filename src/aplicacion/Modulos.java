@@ -95,6 +95,9 @@ public class Modulos extends javax.swing.JFrame {
 
         jPanel_ingresos.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_ingresos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel_ingresosMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel_ingresosMouseEntered(evt);
             }
@@ -475,6 +478,12 @@ public class Modulos extends javax.swing.JFrame {
         rs.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jPanel_ingresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseClicked
+        // TODO add your handling code here:
+        Ingresos ingresos=new Ingresos();
+        ingresos.setVisible(true);
+    }//GEN-LAST:event_jPanel_ingresosMouseClicked
     public void setColor(JPanel jpanel){
         
         jpanel.setBackground(new java.awt.Color(204,203,203));

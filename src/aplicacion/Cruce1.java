@@ -79,7 +79,7 @@ public class Cruce1 extends javax.swing.JFrame {
             col.setCellEditor(new DefaultCellEditor(combo));
 
         } catch (SQLException ex) {
-            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,142 +100,147 @@ public class Cruce1 extends javax.swing.JFrame {
         return columnaABuscar;
     }
 
-    public int BuscarActivo() {
-
-        String[] activos = {"Id", "Localizacion", "Nombre Activo", "Tipo Activo"};
-        modelo = new DefaultTableModel(null, activos);
-        String datos[] = new String[5];
-        int seleccion = filtro();
-        String cadena = (txtFiltro.getText());
-        String activoCruce = "";
-        int activoCruceInt = -1;
-        if (seleccion == 0) {
+        public int BuscarActivo(){
+   
+            String [] activos= {"Id","Localizacion","Nombre Activo", "Tipo Activo"};
+            modelo=new  DefaultTableModel(null,activos);
+            String datos []= new String[5];
+            int seleccion=filtro();
+            String cadena = (txtFiltro.getText());
+            String activoCruce="";
+            int activoCruceInt=-1;
+            if (seleccion==0){
                 //String cadena = (txtFiltro.getText());
-            //txtFiltro.setText(cadena);
-            String sql = "SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where idactivo= '" + cadena + "' ";
-
-            try {
-                Statement st = cxn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-
-                while (rs.next()) {
-                    activoCruce = rs.getString("idactivo");
-                    if (activoCruce == null || activoCruce.equals("")) {
-                        activoCruceInt = 0;
-                        System.out.println("No existe activo");
-                    } else {
-                        activoCruceInt = Integer.parseInt(activoCruce);
-                        System.out.println("SI existe activo");
-                    }
-                    datos[0] = rs.getString("idactivo");
-                    datos[1] = rs.getString("identificador");
-                    datos[2] = rs.getString("nombre_activo");
-                    datos[3] = rs.getString("tipo_activo");
-                    modelo.addRow(datos);
-                }
-                jTableActivo.setModel(modelo);
-            } catch (SQLException ex) {
-                Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            if (seleccion == 1) {
-                        //String cadena = (txtFiltro.getText());
                 //txtFiltro.setText(cadena);
-                String sql = "SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where identificador= '" + cadena + "' ";
+                String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where idactivo= '"+cadena+"' ";       
+                
+                     try {
+                     Statement st = cxn.createStatement();
+                     ResultSet rs = st.executeQuery(sql);
 
-                try {
-                    Statement st = cxn.createStatement();
-                    ResultSet rs = st.executeQuery(sql);
-                    while (rs.next()) {
-                        activoCruce = rs.getString("idactivo");
-                        if (activoCruce == null || activoCruce.equals("")) {
-                            activoCruceInt = 0;
-                            System.out.println("No existe activo");
-                        } else {
-                            activoCruceInt = Integer.parseInt(activoCruce);
-                            System.out.println("SI existe activo");
-                        }
-                        activoCruce = rs.getString("idactivo");
-                        datos[0] = rs.getString("idactivo");
-                        datos[1] = rs.getString("identificador");
-                        datos[2] = rs.getString("nombre_activo");
-                        datos[3] = rs.getString("tipo_activo");
-                        modelo.addRow(datos);
-                    }
-                    jTableActivo.setModel(modelo);
-                } catch (SQLException ex) {
-                    Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } else {
-                if (seleccion == 2) {
-                       // String cadena = (txtFiltro.getText());
-                    //txtFiltro.setText(cadena);
-                    String sql = "SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where nombre_activo= '" + cadena + "' ";
-
-                    try {
-                        Statement st = cxn.createStatement();
-                        ResultSet rs = st.executeQuery(sql);
-                        while (rs.next()) {
-                            activoCruce = rs.getString("idactivo");
-                            if (activoCruce == null || activoCruce.equals("")) {
-                                activoCruceInt = 0;
-                                System.out.println("No existe activo");
-                            } else {
-                                activoCruceInt = Integer.parseInt(activoCruce);
-                                System.out.println("SI existe activo");
-                            }
-                            activoCruce = rs.getString("idactivo");
-                            datos[0] = rs.getString("idactivo");
-                            datos[1] = rs.getString("identificador");
-                            datos[2] = rs.getString("nombre_activo");
-                            datos[3] = rs.getString("tipo_activo");
-                            modelo.addRow(datos);
-                        }
-                        jTableActivo.setModel(modelo);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    if (seleccion == 3) {
-                        // String cadena = (txtFiltro.getText());
-                        String sql = "SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where tipo_activo= '" + cadena + "' ";
-
+                     while(rs.next())
+                     { 
+                         activoCruce=rs.getString("idactivo");
+                         if (activoCruce == null || activoCruce.equals("")){
+                             activoCruceInt=0;
+                             System.out.println("No existe activo");
+                         }else{
+                             activoCruceInt= Integer.parseInt(activoCruce);
+                             System.out.println("SI existe activo");
+                         }
+                         datos[0]=rs.getString("idactivo");
+                         datos[1]=rs.getString("identificador");
+                         datos[2]= rs.getString("nombre_activo");
+                         datos[3]= rs.getString("tipo_activo");
+                         modelo.addRow(datos);
+                     }
+                     jTableActivo.setModel(modelo);
+                 } catch (SQLException ex) {
+                     Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+           }else{ 
+                    if (seleccion==1){
+                        //String cadena = (txtFiltro.getText());
+                        //txtFiltro.setText(cadena);
+                        String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where identificador= '"+cadena+"' ";       
+                       
                         try {
-                            Statement st = cxn.createStatement();
-                            ResultSet rs = st.executeQuery(sql);
-                            while (rs.next()) {
-                                activoCruce = rs.getString("idactivo");
-                                if (activoCruce == null || activoCruce.equals("")) {
-                                    activoCruceInt = 0;
+                             Statement st = cxn.createStatement();
+                             ResultSet rs = st.executeQuery(sql);
+                             while(rs.next())
+                             { 
+                                activoCruce=rs.getString("idactivo");
+                                if (activoCruce == null || activoCruce.equals("")){
+                                        activoCruceInt=0;
                                     System.out.println("No existe activo");
-                                } else {
-                                    activoCruceInt = Integer.parseInt(activoCruce);
-                                    System.out.println("SI existe activo");
+                                }else{
+                                     activoCruceInt= Integer.parseInt(activoCruce);
+                                     System.out.println("SI existe activo");
                                 }
-                                datos[0] = rs.getString("idactivo");
-                                datos[1] = rs.getString("identificador");
-                                datos[2] = rs.getString("nombre_activo");
-                                datos[3] = rs.getString("tipo_activo");
-                                modelo.addRow(datos);
-                            }
-                            jTableActivo.setModel(modelo);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-
-                        }
+                                 activoCruce=rs.getString("idactivo");
+                                 datos[0]=rs.getString("idactivo");
+                                 datos[1]=rs.getString("identificador");
+                                 datos[2]= rs.getString("nombre_activo");
+                                 datos[3]= rs.getString("tipo_activo");
+                                 modelo.addRow(datos);
+                             }
+                             jTableActivo.setModel(modelo);
+                         } catch (SQLException ex) {
+                             Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                         }     
                     }
-                }
-            }
-        }
+                    else{
+                        if (seleccion==2){
+                       // String cadena = (txtFiltro.getText());
+                        //txtFiltro.setText(cadena);
+                        String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where nombre_activo= '"+cadena+"' ";       
+                        
+                        try {
+                             Statement st = cxn.createStatement();
+                             ResultSet rs = st.executeQuery(sql);
+                             while(rs.next())
+                             { 
+                                activoCruce=rs.getString("idactivo");
+                                if (activoCruce == null || activoCruce.equals("")){
+                                    activoCruceInt=0;
+                                    System.out.println("No existe activo");
+                                }else{
+                                     activoCruceInt= Integer.parseInt(activoCruce);
+                                     System.out.println("SI existe activo");
+                                }
+                                 activoCruce=rs.getString("idactivo");
+                                 datos[0]=rs.getString("idactivo");
+                                 datos[1]=rs.getString("identificador");
+                                 datos[2]= rs.getString("nombre_activo");
+                                 datos[3]= rs.getString("tipo_activo");
+                                 modelo.addRow(datos);
+                             }
+                             jTableActivo.setModel(modelo);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }else{
+                            if (seleccion==3){
+                               // String cadena = (txtFiltro.getText());
+                                String sql="SELECT idactivo,identificador,Cantidad,nombre_activo, tipo_activo FROM activo where tipo_activo= '"+cadena+"' ";       
+                                
+                                try {
+                                    Statement st = cxn.createStatement();
+                                    ResultSet rs = st.executeQuery(sql);
+                                    while(rs.next())
+                                    { 
+                                        activoCruce=rs.getString("idactivo");
+                                        if (activoCruce == null || activoCruce.equals("")){
+                                           activoCruceInt=0;
+                                           System.out.println("No existe activo");
+                                        }else{
+                                             activoCruceInt= Integer.parseInt(activoCruce);
+                                             System.out.println("SI existe activo");
+                                        }
+                                        datos[0]=rs.getString("idactivo");
+                                        datos[1]=rs.getString("identificador");
+                                        datos[2]= rs.getString("nombre_activo");
+                                        datos[3]= rs.getString("tipo_activo");
+                                        modelo.addRow(datos);
+                                    }
+                                    jTableActivo.setModel(modelo);
+                                   } catch (SQLException ex) {
+                                       Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                                      
+                                    }
+                            }
+                        }   
+                     } 
+                 }
             //activoCruceInt= Integer.parseInt(activoCruce);
-        //activoCruceInt= Integer.parseInt(activoCruce);
-        if (activoCruceInt == -1) {
-            System.out.println("No existe activo con el parametro seleccionado");
-            JOptionPane.showMessageDialog(null, "¡No existe activo con el parametro seleccionado!");
+            //activoCruceInt= Integer.parseInt(activoCruce);
+            if(activoCruceInt==-1){
+                System.out.println("No existe activo con el parametro seleccionado");  
+                JOptionPane.showMessageDialog(null, "¡No existe activo con el parametro seleccionado!");
+            }
+            System.out.println(activoCruceInt); 
+            return activoCruceInt;
         }
-        System.out.println(activoCruceInt);
-        return activoCruceInt;
-    }
 
     Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
