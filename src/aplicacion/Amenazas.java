@@ -5,6 +5,21 @@
  */
 package aplicacion;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import jdk.nashorn.internal.scripts.JO;
+import metodos.Conexionbd;
+
 /**
  *
  * @author Leonardo
@@ -14,8 +29,93 @@ public class Amenazas extends javax.swing.JFrame {
     /**
      * Creates new form Ingresos
      */
-    public Amenazas() {
+    public Amenazas() throws SQLException {
         initComponents();
+        AM1();
+        AM2();
+        AM3();
+        AM4();
+        AM5();
+        AM6();
+
+    }
+
+    void Limpiar() {
+        Textamenaza.setText("");
+        tipo_amenaza.setSelectedIndex(0);
+
+    }
+
+    private void AM1() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM1'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a1.setModel(modelo);
+        }
+    }
+
+    private void AM2() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM2'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a2.setModel(modelo);
+        }
+    }
+
+    private void AM3() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM3'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a3.setModel(modelo);
+        }
+    }
+
+    private void AM4() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM4'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a4.setModel(modelo);
+        }
+    }
+
+    private void AM5() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM5'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a5.setModel(modelo);
+        }
+    }
+
+    private void AM6() throws SQLException {
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        String sql = "";
+        sql = "select nombre_amenaza from amenaza where tipo_amenaza='AM6'";
+        Statement st = cxn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while (rs.next()) {
+            modelo.addElement(rs.getString("nombre_amenaza"));
+            jList_a6.setModel(modelo);
+        }
     }
 
     /**
@@ -28,37 +128,32 @@ public class Amenazas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_amenazas = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_activo = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField_id = new javax.swing.JTextField();
-        jTextField_activo = new javax.swing.JTextField();
-        jTextField_identificador = new javax.swing.JTextField();
+        Textamenaza = new javax.swing.JTextField();
         jButton_guardar = new javax.swing.JButton();
         jButton_modificar = new javax.swing.JButton();
-        jButton_eliminar = new javax.swing.JButton();
         jButton_nuevo = new javax.swing.JButton();
-        jButton_eliminar1 = new javax.swing.JButton();
+        jButton_eliminar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        jList_a3 = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList6 = new javax.swing.JList<>();
+        jList_a2 = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jList7 = new javax.swing.JList<>();
+        jList_a6 = new javax.swing.JList<>();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jList8 = new javax.swing.JList<>();
+        jList_a1 = new javax.swing.JList<>();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jList9 = new javax.swing.JList<>();
+        jList_a4 = new javax.swing.JList<>();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jList10 = new javax.swing.JList<>();
+        jList_a5 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        tipo_amenaza = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -68,50 +163,16 @@ public class Amenazas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable_activo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTable_activo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Id", "Amenaza", "Tipo Amenaza"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable_activo);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel2.setText("id:");
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel3.setText("Amenaza:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel4.setText("Tipo Amenaza:");
 
-        jTextField_id.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField_id.addActionListener(new java.awt.event.ActionListener() {
+        Textamenaza.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Textamenaza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_idActionPerformed(evt);
-            }
-        });
-
-        jTextField_activo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField_activo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_activoActionPerformed(evt);
-            }
-        });
-
-        jTextField_identificador.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField_identificador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_identificadorActionPerformed(evt);
+                TextamenazaActionPerformed(evt);
             }
         });
 
@@ -133,15 +194,6 @@ public class Amenazas extends javax.swing.JFrame {
             }
         });
 
-        jButton_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton_eliminar.setText("Buscar");
-        jButton_eliminar.setBorder(null);
-        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_eliminarActionPerformed(evt);
-            }
-        });
-
         jButton_nuevo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButton_nuevo.setText("Nuevo");
         jButton_nuevo.setBorder(null);
@@ -151,69 +203,99 @@ public class Amenazas extends javax.swing.JFrame {
             }
         });
 
-        jButton_eliminar1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton_eliminar1.setText("Eliminar");
-        jButton_eliminar1.setBorder(null);
-        jButton_eliminar1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButton_eliminar.setText("Eliminar");
+        jButton_eliminar.setBorder(null);
+        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_eliminar1ActionPerformed(evt);
+                jButton_eliminarActionPerformed(evt);
             }
         });
 
-        jList3.setBackground(new java.awt.Color(240, 240, 240));
-        jList3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jList3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        jList_a3.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jList_a3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "AMENAZAS", "" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane4.setViewportView(jList3);
+        jList_a3.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a3ValueChanged(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jList_a3);
 
-        jList6.setBackground(new java.awt.Color(240, 240, 240));
-        jList6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+        jList_a2.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "AMENAZAS", "" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList6);
+        jList_a2.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a2ValueChanged(evt);
+            }
+        });
+        jScrollPane7.setViewportView(jList_a2);
 
-        jList7.setBackground(new java.awt.Color(240, 240, 240));
-        jList7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList7.setModel(new javax.swing.AbstractListModel<String>() {
+        jList_a6.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a6.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "AMENAZAS", "" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane8.setViewportView(jList7);
+        jList_a6.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a6ValueChanged(evt);
+            }
+        });
+        jScrollPane8.setViewportView(jList_a6);
 
-        jList8.setBackground(new java.awt.Color(240, 240, 240));
-        jList8.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList8.setModel(new javax.swing.AbstractListModel<String>() {
+        jList_a1.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList_a1MouseClicked(evt);
+            }
+        });
+        jList_a1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a1ValueChanged(evt);
+            }
+        });
+        jScrollPane9.setViewportView(jList_a1);
+
+        jList_a4.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "AMENAZAS", "" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList_a4.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a4ValueChanged(evt);
+            }
+        });
+        jScrollPane10.setViewportView(jList_a4);
+
+        jList_a5.setBackground(new java.awt.Color(240, 240, 240));
+        jList_a5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jList_a5.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "AMENAZAS" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane9.setViewportView(jList8);
-
-        jList9.setBackground(new java.awt.Color(240, 240, 240));
-        jList9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList9.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "AMENAZAS", "" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jList_a5.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList_a5ValueChanged(evt);
+            }
         });
-        jScrollPane10.setViewportView(jList9);
-
-        jList10.setBackground(new java.awt.Color(240, 240, 240));
-        jList10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jList10.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "AMENAZAS" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane11.setViewportView(jList10);
+        jScrollPane11.setViewportView(jList_a5);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel1.setText("AMENAZAS A6");
@@ -233,6 +315,8 @@ public class Amenazas extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel9.setText("AMENAZAS A5");
 
+        tipo_amenaza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AM1", "AM2", "AM3", "AM4", "AM5", "AM6" }));
+
         javax.swing.GroupLayout jPanel_amenazasLayout = new javax.swing.GroupLayout(jPanel_amenazas);
         jPanel_amenazas.setLayout(jPanel_amenazasLayout);
         jPanel_amenazasLayout.setHorizontalGroup(
@@ -240,109 +324,98 @@ public class Amenazas extends javax.swing.JFrame {
             .addGroup(jPanel_amenazasLayout.createSequentialGroup()
                 .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel5)
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel6)
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_amenazasLayout.createSequentialGroup()
+                            .addGap(110, 110, 110)
+                            .addComponent(jLabel8)
+                            .addGap(200, 200, 200)
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addGap(99, 99, 99))
+                        .addGroup(jPanel_amenazasLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel_amenazasLayout.createSequentialGroup()
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel_amenazasLayout.createSequentialGroup()
+                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel_amenazasLayout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(8, 8, 8)
-                                .addComponent(jTextField_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField_identificador, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(89, 89, 89)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))
-                            .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30))
+                                .addComponent(Textamenaza, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tipo_amenaza, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_amenazasLayout.setVerticalGroup(
             jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel5))
-                    .addComponent(jLabel7))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel1))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_amenazasLayout.createSequentialGroup()
-                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jTextField_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jTextField_identificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGap(329, 329, 329)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(34, 34, 34)
+                            .addComponent(tipo_amenaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel_amenazasLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel1)))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Textamenaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -406,38 +479,449 @@ public class Amenazas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_eliminar1ActionPerformed
+    int id_amenaza1() {
+        String fila = jList_a1.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
 
+    int id_amenaza2() {
+        String fila = jList_a2.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
+
+    int id_amenaza3() {
+        String fila = jList_a3.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
+
+    int id_amenaza4() {
+        String fila = jList_a4.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
+
+    int id_amenaza5() {
+        String fila = jList_a5.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
+
+    int id_amenaza6() {
+        String fila = jList_a6.getSelectedValue();
+        int id_amenaza = 0;
+        String sql1 = "select idamenaza, nombre_amenaza  from amenaza where nombre_amenaza='" + fila + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql1);
+            while (rs.next()) {
+                id_amenaza = rs.getInt("idamenaza");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return id_amenaza;
+    }
+
+    void eliminar1() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza1() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM1();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+
+    }
+
+    void eliminar2() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza2() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM2();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    void eliminar3() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza3() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM3();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    void eliminar4() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza4() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM4();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    void eliminar5() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza5() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM5();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    void eliminar6() {
+        String sql = "delete from amenaza where idamenaza='" + id_amenaza6() + "'";
+        try {
+            Statement st = cxn.createStatement();
+            int n = st.executeUpdate(sql);
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                AM6();
+                Limpiar();
+            }
+        } catch (Exception e) {
+        }
+    }
     private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
-
+        Limpiar();
     }//GEN-LAST:event_jButton_nuevoActionPerformed
+    void modificar1() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza1() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+            int n = ps.executeUpdate();
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM1();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
 
-    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
+    void modificar2() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza2() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+            int n = ps.executeUpdate();
+            if (n > 0) {
 
-    }//GEN-LAST:event_jButton_eliminarActionPerformed
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM2();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
 
+    void modificar3() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza3() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+             int n = ps.executeUpdate();
+            if (n > 0) {
+
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM3();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
+
+    void modificar4() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza4() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+             int n = ps.executeUpdate();
+            if (n > 0) {
+
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM4();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
+
+    void modificar5() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza5() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+              int n = ps.executeUpdate();
+            if (n > 0) {
+
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM5();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
+
+    void modificar6() {
+        String nombre_amen = Textamenaza.getText();
+        String sql = "update amenaza set nombre_amenaza='" + nombre_amen + "' where idamenaza='" + id_amenaza6() + "'";
+        try {
+            PreparedStatement ps = cxn.prepareCall(sql);
+            int n = ps.executeUpdate();
+            if (n > 0) {
+
+                JOptionPane.showMessageDialog(null, "datos modificado");
+                Limpiar();
+                AM6();
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }
     private void jButton_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_modificarActionPerformed
-
-        // TODO add your handling code here:
+        modificar1();
+        modificar2();
+        modificar3();
+        modificar4();
+        modificar5();
+        modificar6();
     }//GEN-LAST:event_jButton_modificarActionPerformed
 
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
+        String sql = "";
+        sql = "insert into amenaza(nombre_amenaza, tipo_amenaza) values(?,?)";
+
+        try {
+            PreparedStatement dato = cxn.prepareStatement(sql);
+            dato.setString(1, Textamenaza.getText().toString());
+            dato.setString(2, tipo_amenaza.getModel().getSelectedItem().toString());
+            dato.executeUpdate();
+            AM1();
+            AM2();
+            AM3();
+            AM4();
+            AM5();
+            AM6();
+            Limpiar();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
 
     }//GEN-LAST:event_jButton_guardarActionPerformed
 
-    private void jTextField_identificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_identificadorActionPerformed
+    private void TextamenazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextamenazaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_identificadorActionPerformed
+    }//GEN-LAST:event_TextamenazaActionPerformed
 
-    private void jTextField_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_activoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_activoActionPerformed
+    private void jList_a1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a1ValueChanged
 
-    private void jTextField_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_idActionPerformed
+        String valor2 = jList_a1.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_jList_a1ValueChanged
+
+    private void jList_a2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a2ValueChanged
+        String valor2 = jList_a2.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jList_a2ValueChanged
+
+    private void jList_a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList_a1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_idActionPerformed
+    }//GEN-LAST:event_jList_a1MouseClicked
+
+    private void jList_a3ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a3ValueChanged
+        String valor2 = jList_a3.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jList_a3ValueChanged
+
+    private void jList_a4ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a4ValueChanged
+        String valor2 = jList_a4.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jList_a4ValueChanged
+
+    private void jList_a5ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a5ValueChanged
+        String valor2 = jList_a5.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }    }//GEN-LAST:event_jList_a5ValueChanged
+
+    private void jList_a6ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList_a6ValueChanged
+        String valor2 = jList_a6.getSelectedValue();
+        String sql = "select nombre_amenaza, tipo_amenaza from amenaza where "
+                + "nombre_amenaza= '" + valor2 + "'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String amenaza = rs.getString("nombre_amenaza");
+                String tipo = rs.getString("tipo_amenaza");
+                Textamenaza.setText(amenaza);
+                tipo_amenaza.getModel().setSelectedItem(tipo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }    }//GEN-LAST:event_jList_a6ValueChanged
+
+    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
+        eliminar1();
+        eliminar2();
+        eliminar3();
+        eliminar4();
+        eliminar5();
+        eliminar6();
+
+    }//GEN-LAST:event_jButton_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -470,48 +954,53 @@ public class Amenazas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Amenazas().setVisible(true);
+                try {
+                    new Amenazas().setVisible(true);
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                    Logger.getLogger(Amenazas.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField Textamenaza;
     private javax.swing.JButton jButton_eliminar;
-    private javax.swing.JButton jButton_eliminar1;
-    private javax.swing.JButton jButton_guardar;
-    private javax.swing.JButton jButton_modificar;
-    private javax.swing.JButton jButton_nuevo;
+    public static javax.swing.JButton jButton_guardar;
+    public static javax.swing.JButton jButton_modificar;
+    public static javax.swing.JButton jButton_nuevo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList10;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList6;
-    private javax.swing.JList<String> jList7;
-    private javax.swing.JList<String> jList8;
-    private javax.swing.JList<String> jList9;
+    private javax.swing.JList<String> jList_a1;
+    private javax.swing.JList<String> jList_a2;
+    private javax.swing.JList<String> jList_a3;
+    private javax.swing.JList<String> jList_a4;
+    private javax.swing.JList<String> jList_a5;
+    private javax.swing.JList<String> jList_a6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel_amenazas;
-    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JPanel jPanel_amenazas;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable_activo;
-    private javax.swing.JTextField jTextField_activo;
-    private javax.swing.JTextField jTextField_id;
-    private javax.swing.JTextField jTextField_identificador;
+    private javax.swing.JComboBox<String> tipo_amenaza;
     // End of variables declaration//GEN-END:variables
+    Conexionbd conxlogin = new Conexionbd();
+    Connection cxn = conxlogin.getConnection();
+    public static int idd = 0;
+    // private ArrayList<jList_a1> lista = new ArrayList<>();
+
 }

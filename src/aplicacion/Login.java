@@ -29,9 +29,9 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         //   this.setUndecorated(false);
         //edite esta parte
-Textid.setVisible(false);
+    
     }
-  public String insert_activo_id_user ;
+  public static String insert_activo_id_user= "" ;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +58,6 @@ Textid.setVisible(false);
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        Textid = new javax.swing.JTextField();
         TextUsuario = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -152,18 +151,6 @@ Textid.setVisible(false);
         jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
 
-        Textid.setBackground(new java.awt.Color(233, 235, 238));
-        Textid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Textid.setToolTipText("");
-        Textid.setBorder(null);
-        Textid.setName(""); // NOI18N
-        Textid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextidActionPerformed(evt);
-            }
-        });
-        jPanel4.add(Textid, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 140, 30));
-
         TextUsuario.setBackground(new java.awt.Color(233, 235, 238));
         TextUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TextUsuario.setToolTipText("");
@@ -240,7 +227,8 @@ Textid.setVisible(false);
                 //Modulos.Text_id.setText(rs.getString("idusuario"));
                 //ing.id.setText(rs.getString("idusuario"));
                 //insert_activo_id_user=rs.getString("idusuario");
-                  Textid.setText(rs.getString("idusuario"));
+                 // Textid.setText(rs.getString("idusuario"));
+                  insert_activo_id_user=rs.getString("idusuario");
                 
              //   Modulos.Text_id.setText(Textid.getText());
                 //Modulos.Text_id
@@ -306,10 +294,6 @@ Textid.setVisible(false);
 
     }
 
-    private void TextidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextidActionPerformed
-
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextUsuarioActionPerformed
@@ -361,7 +345,6 @@ Textid.setVisible(false);
     public static javax.swing.JButton BIngresar;
     public static javax.swing.JPasswordField TextContraseña;
     public static javax.swing.JTextField TextUsuario;
-    public static javax.swing.JTextField Textid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -380,8 +363,7 @@ Textid.setVisible(false);
     // End of variables declaration//GEN-END:variables
 Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
-  
-    
+
     //Modulos.AccessibleAWTComponent
 //    Modulos md=new Modulos();
   

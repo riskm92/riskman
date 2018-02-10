@@ -20,13 +20,7 @@ public class Modulos extends javax.swing.JFrame {
     public Modulos() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //Modulos.Text_id.setText(Textid.getText());
-        //Login.Textid.getText(Text_id.setText(string));
-          //Text_id.setText(Login.Textid.getText());
-          //Login.TextUsuario.getText()
-          Text_id.setVisible(false);
-          String dd=Login.Textid.getText();
-          Text_id.setText(dd);
+       
     }
 
     /**
@@ -61,7 +55,6 @@ public class Modulos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        Text_id = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -370,7 +363,6 @@ public class Modulos extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, -1, -1));
-        jPanel2.add(Text_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -539,7 +531,6 @@ public class Modulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JTextField Text_id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

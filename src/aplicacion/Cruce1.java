@@ -554,6 +554,7 @@ public class Cruce1 extends javax.swing.JFrame {
 
     private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
         // TODO add your handling code here:
+        
 
     }//GEN-LAST:event_txtFiltroKeyTyped
 

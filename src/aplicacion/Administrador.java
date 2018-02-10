@@ -7,6 +7,7 @@ package aplicacion;
 
 import java.awt.BorderLayout;
 import java.sql.Connection;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -35,14 +36,9 @@ public class Administrador extends javax.swing.JFrame {
 
         jMenu4 = new javax.swing.JMenu();
         jPanel_principal = new javax.swing.JPanel();
-        jPanel_registro = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jPanel_contacto = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Binformacion = new javax.swing.JButton();
+        Bcontacto = new javax.swing.JButton();
+        Bregistro = new javax.swing.JButton();
 
         jMenu4.setText("jMenu4");
 
@@ -52,155 +48,138 @@ public class Administrador extends javax.swing.JFrame {
         jPanel_principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 530));
 
-        jPanel_registro.setBackground(new java.awt.Color(27, 29, 37));
-        jPanel_registro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_registroMouseClicked(evt);
-            }
+        Binformacion.setBackground(new java.awt.Color(27, 29, 37));
+        Binformacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Binformacion.setForeground(new java.awt.Color(255, 255, 255));
+        Binformacion.setText("Informacion");
+        Binformacion.setBorder(null);
+        Binformacion.setContentAreaFilled(false);
+        Binformacion.setOpaque(true);
+        Binformacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_registroMouseEntered(evt);
+                BinformacionMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_registroMouseExited(evt);
+                BinformacionMouseExited(evt);
             }
         });
-
-        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Registro");
-
-        javax.swing.GroupLayout jPanel_registroLayout = new javax.swing.GroupLayout(jPanel_registro);
-        jPanel_registro.setLayout(jPanel_registroLayout);
-        jPanel_registroLayout.setHorizontalGroup(
-            jPanel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_registroLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(jLabel21)
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
-        jPanel_registroLayout.setVerticalGroup(
-            jPanel_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_registroLayout.createSequentialGroup()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, -1));
-
-        jPanel_contacto.setBackground(new java.awt.Color(27, 29, 37));
-        jPanel_contacto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_contactoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_contactoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_contactoMouseExited(evt);
-            }
-        });
-
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Contactos");
-
-        javax.swing.GroupLayout jPanel_contactoLayout = new javax.swing.GroupLayout(jPanel_contacto);
-        jPanel_contacto.setLayout(jPanel_contactoLayout);
-        jPanel_contactoLayout.setHorizontalGroup(
-            jPanel_contactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_contactoLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jLabel20)
-                .addContainerGap(231, Short.MAX_VALUE))
-        );
-        jPanel_contactoLayout.setVerticalGroup(
-            jPanel_contactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_contactoLayout.createSequentialGroup()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel_contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 460, -1));
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-
-        jMenuItem1.setText("jMenuItem1");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Binformacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                BinformacionActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        getContentPane().add(Binformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 50));
 
-        jMenuBar1.add(jMenu2);
+        Bcontacto.setBackground(new java.awt.Color(27, 29, 37));
+        Bcontacto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Bcontacto.setForeground(new java.awt.Color(255, 255, 255));
+        Bcontacto.setText("Contacto");
+        Bcontacto.setBorder(null);
+        Bcontacto.setContentAreaFilled(false);
+        Bcontacto.setOpaque(true);
+        Bcontacto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BcontactoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BcontactoMouseExited(evt);
+            }
+        });
+        Bcontacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcontactoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bcontacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 290, 50));
 
-        setJMenuBar(jMenuBar1);
+        Bregistro.setBackground(new java.awt.Color(27, 29, 37));
+        Bregistro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Bregistro.setForeground(new java.awt.Color(255, 255, 255));
+        Bregistro.setText("Registro Usuario");
+        Bregistro.setBorder(null);
+        Bregistro.setContentAreaFilled(false);
+        Bregistro.setOpaque(true);
+        Bregistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BregistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BregistroMouseExited(evt);
+            }
+        });
+        Bregistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BregistroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 300, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel_registroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_registroMouseExited
-        resetColor(jPanel_registro);
-    }//GEN-LAST:event_jPanel_registroMouseExited
-
-    private void jPanel_registroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_registroMouseEntered
-        setColor(jPanel_registro);
-    }//GEN-LAST:event_jPanel_registroMouseEntered
-
-    private void jPanel_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_registroMouseClicked
-            try {
-            RegistroUser regist =new RegistroUser();
-                    regist.setSize(900, 530);
-                    regist.setLocation(0, 0);
-        
-                    jPanel_principal.removeAll();
-                    jPanel_principal.add(regist, BorderLayout.CENTER);
-                    jPanel_principal.revalidate();
-                    jPanel_principal.repaint();
-        } catch (Exception e) {
-                System.err.println(""+e);
-        }
-                    
-    }//GEN-LAST:event_jPanel_registroMouseClicked
-
-    private void jPanel_contactoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_contactoMouseExited
-        resetColor(jPanel_contacto);
-    }//GEN-LAST:event_jPanel_contactoMouseExited
-
-    private void jPanel_contactoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_contactoMouseEntered
-        setColor(jPanel_contacto);
-    }//GEN-LAST:event_jPanel_contactoMouseEntered
-
-    private void jPanel_contactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_contactoMouseClicked
-                      
-
-        //            ejemplo cont =new ejemplo();
-        //            cont.setSize(900, 530);
-        //            cont.setLocation(0, 0);
-        //
-        //            jPanel_principal.removeAll();
-        //            jPanel_principal.add(cont, BorderLayout.CENTER);
-        //            jPanel_principal.revalidate();
-        //            jPanel_principal.repaint();
-    }//GEN-LAST:event_jPanel_contactoMouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void BcontactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcontactoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_BcontactoActionPerformed
 
-    public void setColor(JPanel jpanel){
+    private void BregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BregistroActionPerformed
+
+ 
+//             this.jPanel_principal.add(un);
+//             un.setVisible(true);
+//        un.setSize(550, 510);
+//        un.setLocation(0, 0);
+//        
+//       jPanel_principal.removeAll();
+//      jPanel_principal.removeAll();
+//
+//    
+//    
+//      jPanel_principal.add(un);
+//      un.setVisible(true);
+//      jPanel_principal.repaint();
+//      jPanel_principal.revalidate();
+    
+
+    }//GEN-LAST:event_BregistroActionPerformed
+
+    private void BinformacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BinformacionMouseEntered
+         setColor(Binformacion);
+    }//GEN-LAST:event_BinformacionMouseEntered
+
+    private void BinformacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BinformacionMouseExited
+         resetColor(Binformacion);
+    }//GEN-LAST:event_BinformacionMouseExited
+
+    private void BregistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistroMouseEntered
+       setColor(Bregistro);
+    }//GEN-LAST:event_BregistroMouseEntered
+
+    private void BregistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistroMouseExited
+ resetColor(Bregistro);
+    }//GEN-LAST:event_BregistroMouseExited
+
+    private void BcontactoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BcontactoMouseEntered
+        setColor(Bcontacto);
+    }//GEN-LAST:event_BcontactoMouseEntered
+
+    private void BcontactoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BcontactoMouseExited
+        resetColor(Bcontacto);
         
-        jpanel.setBackground(new java.awt.Color(60,64,77));
+    }//GEN-LAST:event_BcontactoMouseExited
+
+    private void BinformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BinformacionActionPerformed
+  
+        
+    }//GEN-LAST:event_BinformacionActionPerformed
+
+    public void setColor(JButton jbutton){
+        
+        jbutton.setBackground(new java.awt.Color(60,64,77));
         
     }
-    public void resetColor(JPanel jpanel){
+    public void resetColor(JButton jbutton){
         
-        jpanel.setBackground(new java.awt.Color(27,29,37));
+        jbutton.setBackground(new java.awt.Color(27,29,37));
         
     }
     /**
@@ -239,16 +218,11 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JButton Bcontacto;
+    private javax.swing.JButton Binformacion;
+    private javax.swing.JButton Bregistro;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel_contacto;
     public static javax.swing.JPanel jPanel_principal;
-    private javax.swing.JPanel jPanel_registro;
     // End of variables declaration//GEN-END:variables
 
 }
