@@ -55,7 +55,7 @@ public class Analisis extends javax.swing.JFrame {
             }
             jTable1.setModel(modelo);
         } catch (SQLException ex) {
-            Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
   
   

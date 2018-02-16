@@ -79,7 +79,7 @@ public class Cruce1 extends javax.swing.JFrame {
             col.setCellEditor(new DefaultCellEditor(combo));
 
         } catch (SQLException ex) {
-            Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -136,7 +136,7 @@ public class Cruce1 extends javax.swing.JFrame {
                      }
                      jTableActivo.setModel(modelo);
                  } catch (SQLException ex) {
-                     Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                     Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
                  }
            }else{ 
                     if (seleccion==1){
@@ -166,7 +166,7 @@ public class Cruce1 extends javax.swing.JFrame {
                              }
                              jTableActivo.setModel(modelo);
                          } catch (SQLException ex) {
-                             Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
                          }     
                     }
                     else{
@@ -197,7 +197,7 @@ public class Cruce1 extends javax.swing.JFrame {
                              }
                              jTableActivo.setModel(modelo);
                             } catch (SQLException ex) {
-                                Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }else{
                             if (seleccion==3){
@@ -225,7 +225,7 @@ public class Cruce1 extends javax.swing.JFrame {
                                     }
                                     jTableActivo.setModel(modelo);
                                    } catch (SQLException ex) {
-                                       Logger.getLogger(RegistroUser.class.getName()).log(Level.SEVERE, null, ex);
+                                       Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
                                       
                                     }
                             }
@@ -479,14 +479,14 @@ public class Cruce1 extends javax.swing.JFrame {
         jPanel_amenazas.setLayout(jPanel_amenazasLayout);
         jPanel_amenazasLayout.setHorizontalGroup(
             jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         jPanel_amenazasLayout.setVerticalGroup(
             jPanel_amenazasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel_amenazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 400, 50));
+        jPanel2.add(jPanel_amenazas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 500, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 50));
 

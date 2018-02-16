@@ -81,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         jPanel4.setFocusTraversalPolicyProvider(true);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(43, 96, 159));
+        jPanel5.setBackground(new java.awt.Color(39, 60, 117));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(233, 235, 238));

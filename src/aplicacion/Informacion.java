@@ -120,13 +120,13 @@ public class Informacion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -134,7 +134,7 @@ public class Informacion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel_celular;
     private javax.swing.JLabel jLabel_correo;
     private javax.swing.JLabel jLabel_edad;
-    private javax.swing.JLabel jLabel_institucion;
+    public javax.swing.JLabel jLabel_institucion;
     private javax.swing.JLabel jLabel_nombres1;
     private javax.swing.JLabel jLabel_sexo;
     private javax.swing.JSeparator jSeparator4;

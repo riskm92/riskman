@@ -53,25 +53,22 @@ public class Modulos extends javax.swing.JFrame {
         jPanel_reportes = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(233, 235, 238));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(45, 102, 169));
+        jPanel3.setBackground(new java.awt.Color(41, 128, 185));
 
-        jLabel13.setBackground(new java.awt.Color(42, 78, 184));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(137, 137, 137));
-        jLabel13.setText("X");
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Logout_Rounded_Left_40px.png"))); // NOI18N
+        jLabel13.setText("Logout");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel13MousePressed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
             }
         });
 
@@ -80,19 +77,14 @@ public class Modulos extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(728, Short.MAX_VALUE)
+                .addContainerGap(762, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 120));
 
         jPanel_ingresos.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_ingresos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,7 +110,7 @@ public class Modulos extends javax.swing.JFrame {
         jPanel_ingresosLayout.setHorizontalGroup(
             jPanel_ingresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ingresosLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel_ingresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
@@ -133,8 +125,6 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(45, 45, 45))
         );
-
-        jPanel2.add(jPanel_ingresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 130, 120));
 
         jPanel_home.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_home.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +155,7 @@ public class Modulos extends javax.swing.JFrame {
                 .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel_homeLayout.setVerticalGroup(
             jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,10 +164,8 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
-
-        jPanel2.add(jPanel_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 130, 120));
 
         jPanel_cruces.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_cruces.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,7 +194,7 @@ public class Modulos extends javax.swing.JFrame {
         jPanel_crucesLayout.setHorizontalGroup(
             jPanel_crucesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_crucesLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel_crucesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,8 +209,6 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(45, 45, 45))
         );
-
-        jPanel2.add(jPanel_cruces, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 130, 120));
 
         jPanel_analisis.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_analisis.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,7 +236,7 @@ public class Modulos extends javax.swing.JFrame {
         jPanel_analisisLayout.setHorizontalGroup(
             jPanel_analisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_analisisLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel_analisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -265,8 +251,6 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(45, 45, 45))
         );
-
-        jPanel2.add(jPanel_analisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 130, 120));
 
         jPanel_aplicacion.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_aplicacion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -303,10 +287,8 @@ public class Modulos extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
-
-        jPanel2.add(jPanel_aplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 130, 120));
 
         jPanel_reportes.setBackground(new java.awt.Color(224, 226, 229));
         jPanel_reportes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -346,23 +328,44 @@ public class Modulos extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jPanel2.add(jPanel_reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 130, 120));
-
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 510, -1, -1));
-
-        jButton2.setText("Cerrar Sesión");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, -1, -1));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel_home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel_cruces, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel_analisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel_aplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(200, 200, 200))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_cruces, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel_analisis, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_aplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(106, 106, 106))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -372,7 +375,7 @@ public class Modulos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -387,11 +390,6 @@ public class Modulos extends javax.swing.JFrame {
         // TODO add your handling code here:
         resetColor(jPanel_home);
     }//GEN-LAST:event_jPanel_homeMouseExited
-
-    private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel13MousePressed
 
     private void jPanel_ingresosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseEntered
         // TODO add your handling code here:
@@ -461,18 +459,6 @@ public class Modulos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        Login visi=new Login();
-        visi.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         Cruce1 rs= new Cruce1();
@@ -485,6 +471,12 @@ public class Modulos extends javax.swing.JFrame {
         Ingresos ingresos=new Ingresos();
         ingresos.setVisible(true);
     }//GEN-LAST:event_jPanel_ingresosMouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        this.setVisible(false);
+        Login visi=new Login();
+        visi.setVisible(true);
+    }//GEN-LAST:event_jLabel13MouseClicked
     public void setColor(JPanel jpanel){
         
         jpanel.setBackground(new java.awt.Color(204,203,203));
@@ -531,8 +523,6 @@ public class Modulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

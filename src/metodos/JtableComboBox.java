@@ -48,7 +48,7 @@ public class JtableComboBox extends JFrame {
          
          JScrollPane pane=new JScrollPane(table);
          getContentPane().add(pane);
-         setSize(350,200);
+         setSize(360,210);
     }
     
     public static void main (String[] args)
