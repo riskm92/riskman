@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+package aplicaion_auxiliar;
 
+import aplicacion.*;
 import static aplicacion.Ingresos.insert_dato;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -25,7 +26,7 @@ import metodos.Conexionbd;
  *
  * @author barcelona
  */
-public class Administrador extends javax.swing.JFrame {
+public class Auxiliar extends javax.swing.JFrame {
 
     /**
      * Creates new form Administrador
@@ -35,7 +36,7 @@ public class Administrador extends javax.swing.JFrame {
     public static String insert_dato = "";
 //    public static boolean cerra = false;
 // private Registrouser registrouser = null;
-    public Administrador() {
+    public Auxiliar() {
         Login lg = new Login();
         insert_dato = lg.insert_activo_id_user;
         initComponents();
@@ -446,8 +447,8 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BregistroActionPerformed
-        RegistroUsuario inf = new RegistroUsuario();
-        inf.setVisible(true);
+        RegistroUsuario_aux aux = new RegistroUsuario_aux();
+        aux.setVisible(true);
         this.setVisible(false);
 
 
@@ -545,20 +546,21 @@ public class Administrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Auxiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Auxiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Auxiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Auxiliar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Administrador().setVisible(true);
+                new Auxiliar().setVisible(true);
             }
         });
     }

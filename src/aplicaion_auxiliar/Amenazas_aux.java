@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+package aplicaion_auxiliar;
 
+import aplicacion.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,12 +26,12 @@ import metodos.Conexionbd;
  *
  * @author Leonardo
  */
-public class Amenazas extends javax.swing.JFrame {
+public class Amenazas_aux extends javax.swing.JFrame {
 
     /**
      * Creates new form Ingresos
      */
-    public Amenazas() throws SQLException {
+    public Amenazas_aux() throws SQLException {
         initComponents();
         AM1();
         AM2();
@@ -154,7 +155,6 @@ public class Amenazas extends javax.swing.JFrame {
         Textamenaza = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton_eliminar = new javax.swing.JButton();
         jButton_modificar = new javax.swing.JButton();
         jButton_guardar = new javax.swing.JButton();
         jButton_nuevo = new javax.swing.JButton();
@@ -385,17 +385,6 @@ public class Amenazas extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(113, 128, 147));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Delete_Row_30px_1.png"))); // NOI18N
-        jButton_eliminar.setText("Eliminar");
-        jButton_eliminar.setBorder(null);
-        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_eliminarActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 100, 40));
 
         jButton_modificar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Edit_Property_30px.png"))); // NOI18N
@@ -928,16 +917,6 @@ public class Amenazas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }    }//GEN-LAST:event_jList_a6ValueChanged
 
-    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
-        eliminar1();
-        eliminar2();
-        eliminar3();
-        eliminar4();
-        eliminar5();
-        eliminar6();
-
-    }//GEN-LAST:event_jButton_eliminarActionPerformed
-
     private void BamenazaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BamenazaMouseEntered
         setColor(Bamenaza);
     }//GEN-LAST:event_BamenazaMouseEntered
@@ -989,7 +968,7 @@ public class Amenazas extends javax.swing.JFrame {
     }
     private void BactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BactivoActionPerformed
 
-        Ingresos ingresos = new Ingresos();
+        Ingresos_aux ingresos = new Ingresos_aux();
         ingresos.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BactivoActionPerformed
@@ -1017,14 +996,16 @@ public class Amenazas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -1033,9 +1014,9 @@ public class Amenazas extends javax.swing.JFrame {
             public void run() {
 
                 try {
-                    new Amenazas().setVisible(true);
+                    new Amenazas_aux().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(Amenazas.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Amenazas_aux.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -1046,7 +1027,6 @@ public class Amenazas extends javax.swing.JFrame {
     private javax.swing.JButton Bactivo;
     private javax.swing.JButton Bamenaza;
     public static javax.swing.JTextField Textamenaza;
-    public static javax.swing.JButton jButton_eliminar;
     public static javax.swing.JButton jButton_guardar;
     public static javax.swing.JButton jButton_modificar;
     public static javax.swing.JButton jButton_nuevo;

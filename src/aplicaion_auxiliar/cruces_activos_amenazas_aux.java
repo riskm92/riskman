@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+package aplicaion_auxiliar;
 
+import aplicacion.*;
 import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +36,7 @@ import metodos.JtableComboBox;
  *
  * @author Leonardo
  */
-public class cruces_activos_amenazas extends javax.swing.JFrame {
+public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
 
     /**
      * Creates new form cruces_activos_amenazas
@@ -43,11 +44,12 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
     Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
 
-    public cruces_activos_amenazas() {
+    public cruces_activos_amenazas_aux() {
         initComponents();
         this.setLocationRelativeTo(null);
         llenartabla_amenaza();
         guardar_cruces();
+        Bguardar.setVisible(false);
 //       llenar_amenaza(); 
     }
 
@@ -163,11 +165,11 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_cruces = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Breporte = new javax.swing.JButton();
+        Bexportar = new javax.swing.JButton();
+        Bguardar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jButton_nuevo = new javax.swing.JButton();
+        Bnuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,30 +245,30 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(113, 128, 147));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
-        jButton1.setText("Reporte");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Breporte.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Breporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
+        Breporte.setText("Reporte");
+        Breporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BreporteActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
-        jButton3.setText("Exportar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Bexportar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Bexportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
+        Bexportar.setText("Exportar");
+        Bexportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BexportarActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
-        jButton2.setText("Guardar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Bguardar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Bguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
+        Bguardar.setText("Guardar");
+        Bguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BguardarActionPerformed(evt);
             }
         });
 
@@ -277,13 +279,13 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
             }
         });
 
-        jButton_nuevo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Available_Updates_30px_2.png"))); // NOI18N
-        jButton_nuevo.setText("Nuevo");
-        jButton_nuevo.setBorder(null);
-        jButton_nuevo.addActionListener(new java.awt.event.ActionListener() {
+        Bnuevo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Bnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Available_Updates_30px_2.png"))); // NOI18N
+        Bnuevo.setText("Nuevo");
+        Bnuevo.setBorder(null);
+        Bnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_nuevoActionPerformed(evt);
+                BnuevoActionPerformed(evt);
             }
         });
 
@@ -295,14 +297,14 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel9)
                 .addGap(24, 24, 24)
-                .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(377, 377, 377))
+                .addComponent(Bnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Bexportar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Breporte)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Bguardar)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,10 +314,10 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Bexportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Breporte)
+                            .addComponent(Bguardar)
+                            .addComponent(Bnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1))))
         );
 
@@ -337,7 +339,7 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BreporteActionPerformed
         int fila = jTable_cruces.getRowCount();
         int colum = jTable_cruces.getColumnCount();
         int i;
@@ -384,7 +386,7 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
 //    }
 //            
 //           });
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BreporteActionPerformed
     public void setColor(JButton jbutton) {
 
         jbutton.setBackground(new java.awt.Color(52, 73, 94));
@@ -402,17 +404,17 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BguardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BguardarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BexportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BexportarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BexportarActionPerformed
 
-    private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
+    private void BnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BnuevoActionPerformed
         
-    }//GEN-LAST:event_jButton_nuevoActionPerformed
+    }//GEN-LAST:event_BnuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,29 +438,30 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cruces_activos_amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(cruces_activos_amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cruces_activos_amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(cruces_activos_amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cruces_activos_amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(cruces_activos_amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cruces_activos_amenazas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(cruces_activos_amenazas_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cruces_activos_amenazas().setVisible(true);
+                new cruces_activos_amenazas_aux().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    public static javax.swing.JButton jButton_nuevo;
+    private javax.swing.JButton Bexportar;
+    private javax.swing.JButton Bguardar;
+    public static javax.swing.JButton Bnuevo;
+    private javax.swing.JButton Breporte;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

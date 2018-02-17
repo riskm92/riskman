@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+package aplicaion_auxiliar;
 
+import aplicacion.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -28,12 +29,12 @@ import metodos.Conexionbd;
  *
  * @author Leonardo
  */
-public class Ingresos extends javax.swing.JFrame {
+public class Ingresos_aux extends javax.swing.JFrame {
 
     DefaultTableModel modelo;
     public static String insert_dato = "";
 
-    public Ingresos() {
+    public Ingresos_aux() {
         Login lg = new Login();
         insert_dato = lg.insert_activo_id_user;
         initComponents();
@@ -367,7 +368,6 @@ public class Ingresos extends javax.swing.JFrame {
         jButton_guardar = new javax.swing.JButton();
         jButton_nuevo = new javax.swing.JButton();
         jButton_modificar = new javax.swing.JButton();
-        jButton_eliminar1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         buscar_activo = new javax.swing.JComboBox<>();
@@ -536,7 +536,7 @@ public class Ingresos extends javax.swing.JFrame {
                 jButton_guardarActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 100, 40));
+        jPanel4.add(jButton_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 100, 40));
 
         jButton_nuevo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Available_Updates_30px_2.png"))); // NOI18N
@@ -547,7 +547,7 @@ public class Ingresos extends javax.swing.JFrame {
                 jButton_nuevoActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 100, 40));
+        jPanel4.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 100, 40));
 
         jButton_modificar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Edit_Property_30px.png"))); // NOI18N
@@ -558,18 +558,7 @@ public class Ingresos extends javax.swing.JFrame {
                 jButton_modificarActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 100, 40));
-
-        jButton_eliminar1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton_eliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Delete_Row_30px_1.png"))); // NOI18N
-        jButton_eliminar1.setText("Eliminar");
-        jButton_eliminar1.setBorder(null);
-        jButton_eliminar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_eliminar1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton_eliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 100, 40));
+        jPanel4.add(jButton_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 100, 40));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 760, 230));
 
@@ -799,24 +788,6 @@ public class Ingresos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_nuevoActionPerformed
 
-    private void jButton_eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminar1ActionPerformed
-        try {
-//            int fila = jTable_activo.getSelectedRow();
-            String sql = "delete from activo where idactivo=" + id_activo();
-
-            Statement sent = cxn.createStatement();
-            int n = sent.executeUpdate(sql);
-            if (n > 0) {
-
-                JOptionPane.showMessageDialog(null, "datos eliminados");
-                llenartabla();
-                Limpiar();
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
-        }
-    }//GEN-LAST:event_jButton_eliminar1ActionPerformed
-
     private void identificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_identificadorActionPerformed
@@ -911,11 +882,11 @@ public class Ingresos extends javax.swing.JFrame {
     private void BamenazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BamenazaActionPerformed
         
         try {
-            Amenazas amenaza = new Amenazas();
+            Amenazas_aux amenaza = new Amenazas_aux();
             amenaza.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
-            Logger.getLogger(Ingresos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Ingresos_aux.class.getName()).log(Level.SEVERE, null, ex);
         }
        
                  
@@ -952,21 +923,22 @@ public class Ingresos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ingresos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingresos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ingresos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingresos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ingresos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingresos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ingresos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingresos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new Ingresos().setVisible(true);
+                new Ingresos_aux().setVisible(true);
             }
         });
     }
@@ -980,7 +952,6 @@ public class Ingresos extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> buscar_activo;
     public static javax.swing.JTextField cantidad;
     public static javax.swing.JTextField identificador;
-    private javax.swing.JButton jButton_eliminar1;
     private javax.swing.JButton jButton_guardar;
     private javax.swing.JButton jButton_modificar;
     private javax.swing.JButton jButton_nuevo;

@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion;
+package aplicaion_auxiliar;
 
 //import javafx.scene.paint.Color;
+import aplicacion.*;
 import javax.swing.JPanel;
 
 /**
  *
  * @author barcelona
  */
-public class Modulos extends javax.swing.JFrame {
+public class Modulos_aux extends javax.swing.JFrame {
 
     /**
      * Creates new form Modulos
      */
-    public Modulos() {
+    public Modulos_aux() {
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -375,10 +376,11 @@ public class Modulos extends javax.swing.JFrame {
 
     private void jPanel_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_homeMouseClicked
         // TODO add your handling code here:
-        Administrador admin = new Administrador();
-        admin.setVisible(true);
-        Login lg = new Login();
-        dispose();
+       
+        Auxiliar aux = new Auxiliar();
+        aux.setVisible(true);
+        this.setVisible(false);
+       
 
 
     }//GEN-LAST:event_jPanel_homeMouseClicked
@@ -399,7 +401,7 @@ public class Modulos extends javax.swing.JFrame {
 
     private void jPanel_ingresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseClicked
         // TODO add your handling code here:
-        Ingresos ingresos = new Ingresos();
+        Ingresos_aux ingresos = new Ingresos_aux();
         ingresos.setVisible(true);
     }//GEN-LAST:event_jPanel_ingresosMouseClicked
 
@@ -417,14 +419,14 @@ public class Modulos extends javax.swing.JFrame {
 
     private void jPanel_analisisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisisMouseClicked
         this.setVisible(false);
-        Analisis analisis = new Analisis();
+        Analisis_aux analisis = new Analisis_aux();
         analisis.setVisible(true);
 
     }//GEN-LAST:event_jPanel_analisisMouseClicked
 
     private void jPanel_aplicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacionMouseClicked
  this.setVisible(false);
-        AplicacionIsos aplicacion = new AplicacionIsos();
+        AplicacionIsos_aux aplicacion = new AplicacionIsos_aux();
         aplicacion.setVisible(true);
     }//GEN-LAST:event_jPanel_aplicacionMouseClicked
     public void setColor(JPanel jpanel) {
@@ -456,20 +458,21 @@ public class Modulos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Modulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modulos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Modulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modulos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Modulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modulos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Modulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modulos_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Modulos().setVisible(true);
+                new Modulos_aux().setVisible(true);
             }
         });
     }

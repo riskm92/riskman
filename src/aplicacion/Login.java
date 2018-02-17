@@ -5,6 +5,7 @@
  */
 package aplicacion;
 
+import aplicaion_auxiliar.Modulos_aux;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,14 +25,15 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-    //    Textid.setVisible(false);
+        //    Textid.setVisible(false);
         initComponents();
         this.setLocationRelativeTo(null);
         //   this.setUndecorated(false);
         //edite esta parte
-    
+
     }
-  public static String insert_activo_id_user= "" ;
+    public static String insert_activo_id_user = "";
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -223,17 +225,16 @@ public class Login extends javax.swing.JFrame {
                 capt = rs.getString("tipo_usuario");
                 //insert_activo_id_user=rs.getString("idusuario");
 
-                 // insert_activo_id_user=rs.getString("idusuario");
+                // insert_activo_id_user=rs.getString("idusuario");
                 //Modulos.Text_id.setText(rs.getString("idusuario"));
                 //ing.id.setText(rs.getString("idusuario"));
                 //insert_activo_id_user=rs.getString("idusuario");
-                 // Textid.setText(rs.getString("idusuario"));
-                  insert_activo_id_user=rs.getString("idusuario");
-                
-             //   Modulos.Text_id.setText(Textid.getText());
-                //Modulos.Text_id
-                  //JOptionPane.showMessageDialog(null, insert_activo_id_user);
+                // Textid.setText(rs.getString("idusuario"));
+                insert_activo_id_user = rs.getString("idusuario");
 
+                //   Modulos.Text_id.setText(Textid.getText());
+                //Modulos.Text_id
+                //JOptionPane.showMessageDialog(null, insert_activo_id_user);
             }
             if (capt.equals("Administrador")) {
                 //  Administrador admin = new Administrador();
@@ -258,9 +259,9 @@ public class Login extends javax.swing.JFrame {
 
                 //  Administrador.labelconectado.setText(user);
             }
-         
+
             if (capt.equals("Auxiliar")) {
-                Auxiliar auxiliar = new Auxiliar();
+                Modulos_aux auxiliar = new Modulos_aux();
                 //  insert_activo_id_user = "select idusuario from usuario";
                 // Statement st2 = cxn.createStatement();
                 //  st2.executeQuery(insert_activo_id_user);
@@ -278,7 +279,7 @@ public class Login extends javax.swing.JFrame {
                 if (pass.equals("")) {
                     JOptionPane.showMessageDialog(null, "debe ingresar la contraseña");
                 } else {
-                    if ((!capt.equals("Administrador")) && (!capt.equals("auxiliar"))) {
+                    if ((!capt.equals("Administrador")) && (!capt.equals("Auxiliar"))) {
                         //JOptionPane.showMessageDialog(null, "no existe datos");
                         JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
                                 + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
@@ -366,5 +367,4 @@ Conexionbd conxlogin = new Conexionbd();
 
     //Modulos.AccessibleAWTComponent
 //    Modulos md=new Modulos();
-  
 }

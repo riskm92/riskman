@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package aplicacion;
+package aplicaion_auxiliar;
 
+import aplicacion.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,15 +21,16 @@ import metodos.Conexionbd;
  *
  * @author fatte
  */
-public class Analisis extends javax.swing.JFrame {
+public class Analisis_aux extends javax.swing.JFrame {
     DefaultTableModel modelo;
     
 
     /**
      * Creates new form Analisis
      */
-    public Analisis() {
+    public Analisis_aux() {
         initComponents();
+        Bguardar.setVisible(false);
         this.setLocationRelativeTo(null);
 
     }
@@ -77,10 +79,10 @@ String idfila="";
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Breporte = new javax.swing.JButton();
+        Bexportar = new javax.swing.JButton();
+        Bguardar = new javax.swing.JButton();
+        Banalisis = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         jButton4.setText("jButton4");
@@ -160,35 +162,35 @@ String idfila="";
         jPanel5.setBackground(new java.awt.Color(113, 128, 147));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
-        jButton8.setText("Reporte");
-        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
+        Breporte.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Breporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
+        Breporte.setText("Reporte");
+        jPanel5.add(Breporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
-        jButton7.setText("Exportar");
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
+        Bexportar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Bexportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
+        Bexportar.setText("Exportar");
+        jPanel5.add(Bexportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
-        jButton9.setText("Guardar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        Bguardar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Bguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
+        Bguardar.setText("Guardar");
+        Bguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                BguardarActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
+        jPanel5.add(Bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Analyze_30px.png"))); // NOI18N
-        jButton6.setText("Visualizar Análisis");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Banalisis.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Banalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Analyze_30px.png"))); // NOI18N
+        Banalisis.setText("Visualizar Análisis");
+        Banalisis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                BanalisisActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 170, 41));
+        jPanel5.add(Banalisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 170, 41));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Go_Back_40px.png"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,9 +228,9 @@ String idfila="";
         jbutton.setBackground(new java.awt.Color(47, 54, 64));
 
     }
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void BanalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BanalisisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_BanalisisActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         this.setVisible(false);
@@ -237,9 +239,9 @@ String idfila="";
         
     }//GEN-LAST:event_jLabel10MouseClicked
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void BguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BguardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_BguardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,30 +260,31 @@ String idfila="";
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Analisis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Analisis_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Analisis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Analisis_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Analisis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Analisis_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Analisis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Analisis_aux.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Analisis().setVisible(true);
+                new Analisis_aux().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Banalisis;
+    private javax.swing.JButton Bexportar;
+    private javax.swing.JButton Bguardar;
+    private javax.swing.JButton Breporte;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
