@@ -51,6 +51,9 @@ public class Modulos_aux extends javax.swing.JFrame {
         jPanel_aplicacion = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -310,6 +313,22 @@ public class Modulos_aux extends javax.swing.JFrame {
 
         jPanel2.add(jPanel_aplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 130, 120));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(146, 146, 146));
+        jLabel11.setText("Desarrolladores: Acosta Alvarado Nexar Jesús - Carrillo Moran Fatima Guadalupe ");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(146, 146, 146));
+        jLabel14.setText(" Propiedad Intelectual Facultad de Ciencias Informaticas - ULEAM");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(146, 146, 146));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Copyright_15px.png"))); // NOI18N
+        jLabel12.setText("Copyright 2017 - 2018");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -401,6 +420,7 @@ public class Modulos_aux extends javax.swing.JFrame {
 
     private void jPanel_ingresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseClicked
         // TODO add your handling code here:
+                this.setVisible(false);
         Ingresos_aux ingresos = new Ingresos_aux();
         ingresos.setVisible(true);
     }//GEN-LAST:event_jPanel_ingresosMouseClicked
@@ -413,21 +433,21 @@ public class Modulos_aux extends javax.swing.JFrame {
 
     private void jPanel_crucesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_crucesMouseClicked
         this.setVisible(false);
-        cruces_activos_amenazas visi = new cruces_activos_amenazas();
+        cruces_activos_amenazas_aux visi = new cruces_activos_amenazas_aux();
         visi.setVisible(true);
     }//GEN-LAST:event_jPanel_crucesMouseClicked
 
     private void jPanel_analisisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisisMouseClicked
         this.setVisible(false);
-        Analisis_aux analisis = new Analisis_aux();
-        analisis.setVisible(true);
+        Analisis_aux analisi = new Analisis_aux();
+        analisi.setVisible(true);
 
     }//GEN-LAST:event_jPanel_analisisMouseClicked
 
     private void jPanel_aplicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacionMouseClicked
  this.setVisible(false);
-        AplicacionIsos_aux aplicacion = new AplicacionIsos_aux();
-        aplicacion.setVisible(true);
+        AplicacionIsos_aux aplicacion_aux = new AplicacionIsos_aux();
+        aplicacion_aux.setVisible(true);
     }//GEN-LAST:event_jPanel_aplicacionMouseClicked
     public void setColor(JPanel jpanel) {
 
@@ -480,7 +500,10 @@ public class Modulos_aux extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

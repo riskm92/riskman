@@ -404,10 +404,6 @@ public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void BguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BguardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BguardarActionPerformed
-
     private void BexportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BexportarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BexportarActionPerformed
@@ -415,6 +411,10 @@ public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
     private void BnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BnuevoActionPerformed
         
     }//GEN-LAST:event_BnuevoActionPerformed
+
+    private void BguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BguardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BguardarActionPerformed
 
     /**
      * @param args the command line arguments

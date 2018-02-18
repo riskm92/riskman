@@ -126,7 +126,7 @@ public class Login extends javax.swing.JFrame {
                 BIngresarActionPerformed(evt);
             }
         });
-        jPanel4.add(BIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 79, 33));
+        jPanel4.add(BIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 110, 40));
 
         TextContraseña.setBackground(new java.awt.Color(233, 235, 238));
         TextContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextContraseñaActionPerformed
 
     private void BIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIngresarActionPerformed
-
+      
         String usu = TextUsuario.getText();
         String pas = new String(TextContraseña.getPassword());
         Ingresar(usu, pas);
@@ -270,6 +270,8 @@ public class Login extends javax.swing.JFrame {
                         + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                         JOptionPane.INFORMATION_MESSAGE);
                 auxiliar.setVisible(true);
+                 dispose();
+                auxiliar.pack();
 
             }
 
