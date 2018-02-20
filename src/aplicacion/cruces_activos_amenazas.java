@@ -9,6 +9,7 @@ import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabe
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,11 +41,10 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
     public String nom_ame = "";
     public int id_Activo = 0;
     public int id_Amenaza = 0;
+    public String Aplicacion = "";
 
     public cruces_activos_amenazas() {
-//        int ID_activo=id_Activo;
-//        int ID_amenaza=id_Amenaza;
-
+        int id_Activo;
         initComponents();
         this.setLocationRelativeTo(null);
         llenartabla_amenaza();
@@ -80,11 +80,9 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
             }
             while (rs.next()) {
                 dat = rs.getString("identificador");
-                String da=(String) dat;
-                iden = da;
+             
                 modelo.addColumn(dat);
-                
-                
+
             }
 
             jTable_cruces.setModel(modelo);
@@ -337,40 +335,7 @@ void insertar_cruces() {
 
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int colum = jTable_cruces.getColumnCount();
-
-        int fila = jTable_cruces.getRowCount();
-        int i = 0;
-        int j;
-        String valores = "";
-//        String datos[] = new String[100];
-
-        for (j = 1; j < colum; j++) {
-            for (i = 0; i < fila; i++) {
-
-                String valor = (String) jTable_cruces.getValueAt(i, j);
-                // Con esta condición solo ponemos comas hasta el penúltimo valor :)
-
-                if ((String) jTable_cruces.getValueAt(i, j) == null) {
-
-                } else {
-
-                    valores += valor;
-//                    Object col = jTable_cruces.getColumnModel().getColumn(0);
-                   
-                  
-//                    String sql="insert into activo_amenaza(aplicacion='"+valores+"')values()";
-           
-                    
-                }
-
-            }
-                
-        }
-     
-        
-//                System.out.println(Arrays.toString(datos));
-        JOptionPane.showMessageDialog(null, "valores de la columna1: " + valores);
+        obtener_aplicacion();
 
     }//GEN-LAST:event_jButton1ActionPerformed
     public void setColor(JButton jbutton) {
@@ -392,38 +357,119 @@ void insertar_cruces() {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        obtener_id_activo(); 
+        insertar_act_ame();
     }//GEN-LAST:event_jButton2ActionPerformed
-     void obtener_id_activo() {
-              JTableHeader colum = jTable_cruces.getTableHeader();
-             int co =colum.getColumnModel().getColumnCount();
-//       int fila = jTable_cruces.getRowCount();
-        int i;
-        int j;
-            for (i = 0; i < co; i++) {
-              String valo = (String) jTable_cruces.getValueAt(0, i);
-                    System.out.println(""+valo);
+    int obtener_id_activo() {
+int id_act = 0;
+//              JTableHeader colum = jTable_cruces.getTableHeader();
+      try {   
+      
+            int fila = jTable_cruces.getRowCount();
+
+            for (int i = 1; i < fila; i++) {
+                String id_activo = jTable_cruces.getColumnName(i);
+//                JOptionPane.showMessageDialog(null, jTable_cruces.getColumnName(i));
+                String sqlactivo = "select idactivo from activo where identificador='" + id_activo + "'";
+                 Statement st = cxn.createStatement();
+                ResultSet rs = st.executeQuery(sqlactivo);
+                while (rs.next()) {
+                    id_act = rs.getInt("idactivo");
+//                    id_Activo = id_act;
+                    JOptionPane.showMessageDialog(this, id_act);
+                }
+            }
+
+        } catch (Exception e) {
         }
+
+        return id_act;
+
     }
-    void obtener_id_amenaza() {
+
+    int obtener_id_amenaza() {
 //              int colum = jTable_cruces.getColumnCount();
 
-       int fila = jTable_cruces.getRowCount();
+        int fila = jTable_cruces.getRowCount();
         int i = 0;
         int j;
+        int id_ame = 0;
+        try {
             for (i = 0; i < fila; i++) {
-              String valo = (String) jTable_cruces.getValueAt(i, 0);
-                    System.out.println(""+valo);
+                String nombre_ame = (String) jTable_cruces.getValueAt(i, 0);
+                String sqlamenaza = "select idamenaza from amenaza where nombre_amenaza='" + nombre_ame + "'";
+
+                Statement st = cxn.createStatement();
+                ResultSet rs = st.executeQuery(sqlamenaza);
+                while (rs.next()) {
+                    id_ame = rs.getInt("idamenaza");
+                    id_Amenaza = id_ame;
+                    JOptionPane.showMessageDialog(this, id_Amenaza);
+                }
+
+            }
+        } catch (Exception e) {
         }
+        return id_ame;
+
     }
+
+    String obtener_aplicacion() {
+        int colum = jTable_cruces.getColumnCount();
+
+        int fila = jTable_cruces.getRowCount();
+        int i = 0;
+        int j;
+        String valores = "";
+//        String datos[] = new String[100];
+
+        for (j = 1; j < colum; j++) {
+            for (i = 0; i < fila; i++) {
+
+                String valor = (String) jTable_cruces.getValueAt(i, j);
+                // Con esta condición solo ponemos comas hasta el penúltimo valor :)
+
+                if ((String) jTable_cruces.getValueAt(i, j) == null) {
+
+                } else {
+
+                    valores += valor;
+                    Aplicacion = valores;
+//                    Object col = jTable_cruces.getColumnModel().getColumn(0);
+
+//                    String sql="insert into activo_amenaza(aplicacion='"+valores+"')values()";
+                }
+
+            }
+
+        }
+//                System.out.println(Arrays.toString(datos));
+        JOptionPane.showMessageDialog(null, "valores de la columna1: " + Aplicacion);
+        return valores;
+    }
+
+    void insertar_act_ame() {
+        obtener_id_activo();
+
+//        String sql = "insert into activo_amenaza(amenazas_idamenaza ,activos_idactivos, aplicacion)values(?,?,?)";
+//        try {
+//            PreparedStatement dato = cxn.prepareStatement(sql);
+//            //dato.setInt(1, id);
+//            dato.setInt(1, obtener_id_amenaza());
+//            dato.setInt(2, obtener_id_activo());
+//            dato.setString(3, apli);
+//            dato.executeUpdate();
+//        } catch (SQLException e) {
+//        }
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-                      obtener_id_amenaza();
+        obtener_id_amenaza();
 //
 //        System.out.println(iden + "" + nom_ame);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
-        System.out.println(""+iden);
+        obtener_id_activo();
     }//GEN-LAST:event_jButton_nuevoActionPerformed
 
     /**

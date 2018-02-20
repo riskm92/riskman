@@ -349,7 +349,7 @@ public class Modulos extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(146, 146, 146));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Copyright_15px.png"))); // NOI18N
-        jLabel12.setText("Copyright 2017 - 2018");
+        jLabel12.setText("Copyright 2018");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
