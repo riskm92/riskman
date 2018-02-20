@@ -18,10 +18,15 @@ public class Modulos_aux extends javax.swing.JFrame {
     /**
      * Creates new form Modulos
      */
+       public static String user_nombres_aux = "";
+    public static String user_apellidos_aux = "";
     public Modulos_aux() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+         user_nombres_aux=Login.usuario_nombres;
+         user_apellidos_aux=Login.usuario_apellidos;
+         jLauxiliar.setText(user_nombres_aux+" "+user_apellidos_aux);
+         
     }
 
     /**
@@ -33,22 +38,24 @@ public class Modulos_aux extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel2_aux = new javax.swing.JPanel();
+        jPanel3_aux = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel_ingresos = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLauxiliar = new javax.swing.JLabel();
+        jPanel_ingresos_aux = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel_home = new javax.swing.JPanel();
+        jPanel_home_aux = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel_cruces = new javax.swing.JPanel();
+        jPanel_cruces_aux = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel_analisis = new javax.swing.JPanel();
+        jPanel_analisis_aux = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel_aplicacion = new javax.swing.JPanel();
+        jPanel_aplicacion_aux = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -59,12 +66,12 @@ public class Modulos_aux extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        jPanel2.setBackground(new java.awt.Color(233, 235, 238));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2_aux.setBackground(new java.awt.Color(233, 235, 238));
+        jPanel2_aux.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(41, 128, 185));
+        jPanel3_aux.setBackground(new java.awt.Color(41, 128, 185));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Logout_Rounded_Left_40px.png"))); // NOI18N
         jLabel13.setText("Logout");
@@ -74,32 +81,47 @@ public class Modulos_aux extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(762, Short.MAX_VALUE)
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(86, 86, 86));
+        jLabel15.setText("Bienvenido Auxiliar:");
+
+        jLauxiliar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLauxiliar.setForeground(new java.awt.Color(86, 86, 86));
+        jLauxiliar.setText("jLabel16");
+
+        javax.swing.GroupLayout jPanel3_auxLayout = new javax.swing.GroupLayout(jPanel3_aux);
+        jPanel3_aux.setLayout(jPanel3_auxLayout);
+        jPanel3_auxLayout.setHorizontalGroup(
+            jPanel3_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_auxLayout.createSequentialGroup()
+                .addContainerGap(431, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLauxiliar)
+                .addGap(98, 98, 98)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        jPanel3_auxLayout.setVerticalGroup(
+            jPanel3_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addComponent(jLauxiliar))
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 100));
+        jPanel2_aux.add(jPanel3_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 100));
 
-        jPanel_ingresos.setBackground(new java.awt.Color(224, 226, 229));
-        jPanel_ingresos.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_ingresos_aux.setBackground(new java.awt.Color(224, 226, 229));
+        jPanel_ingresos_aux.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_ingresosMouseClicked(evt);
+                jPanel_ingresos_auxMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_ingresosMouseEntered(evt);
+                jPanel_ingresos_auxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_ingresosMouseExited(evt);
+                jPanel_ingresos_auxMouseExited(evt);
             }
         });
 
@@ -109,20 +131,20 @@ public class Modulos_aux extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
         jLabel2.setText("Ingresos");
 
-        javax.swing.GroupLayout jPanel_ingresosLayout = new javax.swing.GroupLayout(jPanel_ingresos);
-        jPanel_ingresos.setLayout(jPanel_ingresosLayout);
-        jPanel_ingresosLayout.setHorizontalGroup(
-            jPanel_ingresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ingresosLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_ingresos_auxLayout = new javax.swing.GroupLayout(jPanel_ingresos_aux);
+        jPanel_ingresos_aux.setLayout(jPanel_ingresos_auxLayout);
+        jPanel_ingresos_auxLayout.setHorizontalGroup(
+            jPanel_ingresos_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ingresos_auxLayout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(jPanel_ingresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel_ingresos_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(27, 27, 27))
         );
-        jPanel_ingresosLayout.setVerticalGroup(
-            jPanel_ingresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ingresosLayout.createSequentialGroup()
+        jPanel_ingresos_auxLayout.setVerticalGroup(
+            jPanel_ingresos_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ingresos_auxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -130,18 +152,18 @@ public class Modulos_aux extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jPanel2.add(jPanel_ingresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 130, 120));
+        jPanel2_aux.add(jPanel_ingresos_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 130, 120));
 
-        jPanel_home.setBackground(new java.awt.Color(224, 226, 229));
-        jPanel_home.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_home_aux.setBackground(new java.awt.Color(224, 226, 229));
+        jPanel_home_aux.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_homeMouseClicked(evt);
+                jPanel_home_auxMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_homeMouseEntered(evt);
+                jPanel_home_auxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_homeMouseExited(evt);
+                jPanel_home_auxMouseExited(evt);
             }
         });
 
@@ -152,20 +174,20 @@ public class Modulos_aux extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 102, 255));
         jLabel6.setText("Home");
 
-        javax.swing.GroupLayout jPanel_homeLayout = new javax.swing.GroupLayout(jPanel_home);
-        jPanel_home.setLayout(jPanel_homeLayout);
-        jPanel_homeLayout.setHorizontalGroup(
-            jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_homeLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_home_auxLayout = new javax.swing.GroupLayout(jPanel_home_aux);
+        jPanel_home_aux.setLayout(jPanel_home_auxLayout);
+        jPanel_home_auxLayout.setHorizontalGroup(
+            jPanel_home_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_home_auxLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel_home_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
-        jPanel_homeLayout.setVerticalGroup(
-            jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_homeLayout.createSequentialGroup()
+        jPanel_home_auxLayout.setVerticalGroup(
+            jPanel_home_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_home_auxLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -173,18 +195,18 @@ public class Modulos_aux extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 130, 120));
+        jPanel2_aux.add(jPanel_home_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 130, 120));
 
-        jPanel_cruces.setBackground(new java.awt.Color(224, 226, 229));
-        jPanel_cruces.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_cruces_aux.setBackground(new java.awt.Color(224, 226, 229));
+        jPanel_cruces_aux.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_crucesMouseClicked(evt);
+                jPanel_cruces_auxMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_crucesMouseEntered(evt);
+                jPanel_cruces_auxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_crucesMouseExited(evt);
+                jPanel_cruces_auxMouseExited(evt);
             }
         });
 
@@ -200,20 +222,20 @@ public class Modulos_aux extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 102, 255));
         jLabel4.setText("Cruces");
 
-        javax.swing.GroupLayout jPanel_crucesLayout = new javax.swing.GroupLayout(jPanel_cruces);
-        jPanel_cruces.setLayout(jPanel_crucesLayout);
-        jPanel_crucesLayout.setHorizontalGroup(
-            jPanel_crucesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_crucesLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_cruces_auxLayout = new javax.swing.GroupLayout(jPanel_cruces_aux);
+        jPanel_cruces_aux.setLayout(jPanel_cruces_auxLayout);
+        jPanel_cruces_auxLayout.setHorizontalGroup(
+            jPanel_cruces_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_cruces_auxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel_crucesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel_cruces_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
-        jPanel_crucesLayout.setVerticalGroup(
-            jPanel_crucesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_crucesLayout.createSequentialGroup()
+        jPanel_cruces_auxLayout.setVerticalGroup(
+            jPanel_cruces_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_cruces_auxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,18 +243,18 @@ public class Modulos_aux extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jPanel2.add(jPanel_cruces, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 130, 120));
+        jPanel2_aux.add(jPanel_cruces_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 130, 120));
 
-        jPanel_analisis.setBackground(new java.awt.Color(224, 226, 229));
-        jPanel_analisis.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_analisis_aux.setBackground(new java.awt.Color(224, 226, 229));
+        jPanel_analisis_aux.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_analisisMouseClicked(evt);
+                jPanel_analisis_auxMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_analisisMouseEntered(evt);
+                jPanel_analisis_auxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_analisisMouseExited(evt);
+                jPanel_analisis_auxMouseExited(evt);
             }
         });
 
@@ -247,20 +269,20 @@ public class Modulos_aux extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 102, 255));
         jLabel8.setText("Analisis");
 
-        javax.swing.GroupLayout jPanel_analisisLayout = new javax.swing.GroupLayout(jPanel_analisis);
-        jPanel_analisis.setLayout(jPanel_analisisLayout);
-        jPanel_analisisLayout.setHorizontalGroup(
-            jPanel_analisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_analisisLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_analisis_auxLayout = new javax.swing.GroupLayout(jPanel_analisis_aux);
+        jPanel_analisis_aux.setLayout(jPanel_analisis_auxLayout);
+        jPanel_analisis_auxLayout.setHorizontalGroup(
+            jPanel_analisis_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_analisis_auxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel_analisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel_analisis_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(31, 31, 31))
         );
-        jPanel_analisisLayout.setVerticalGroup(
-            jPanel_analisisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_analisisLayout.createSequentialGroup()
+        jPanel_analisis_auxLayout.setVerticalGroup(
+            jPanel_analisis_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_analisis_auxLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -268,18 +290,18 @@ public class Modulos_aux extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jPanel2.add(jPanel_analisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 130, 120));
+        jPanel2_aux.add(jPanel_analisis_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 130, 120));
 
-        jPanel_aplicacion.setBackground(new java.awt.Color(224, 226, 229));
-        jPanel_aplicacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_aplicacion_aux.setBackground(new java.awt.Color(224, 226, 229));
+        jPanel_aplicacion_aux.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel_aplicacionMouseClicked(evt);
+                jPanel_aplicacion_auxMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel_aplicacionMouseEntered(evt);
+                jPanel_aplicacion_auxMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel_aplicacionMouseExited(evt);
+                jPanel_aplicacion_auxMouseExited(evt);
             }
         });
 
@@ -290,20 +312,20 @@ public class Modulos_aux extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 102, 255));
         jLabel10.setText(" Aplicaciòn");
 
-        javax.swing.GroupLayout jPanel_aplicacionLayout = new javax.swing.GroupLayout(jPanel_aplicacion);
-        jPanel_aplicacion.setLayout(jPanel_aplicacionLayout);
-        jPanel_aplicacionLayout.setHorizontalGroup(
-            jPanel_aplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_aplicacionLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel_aplicacion_auxLayout = new javax.swing.GroupLayout(jPanel_aplicacion_aux);
+        jPanel_aplicacion_aux.setLayout(jPanel_aplicacion_auxLayout);
+        jPanel_aplicacion_auxLayout.setHorizontalGroup(
+            jPanel_aplicacion_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_aplicacion_auxLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel_aplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel_aplicacion_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel_aplicacionLayout.setVerticalGroup(
-            jPanel_aplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_aplicacionLayout.createSequentialGroup()
+        jPanel_aplicacion_auxLayout.setVerticalGroup(
+            jPanel_aplicacion_auxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_aplicacion_auxLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -311,89 +333,89 @@ public class Modulos_aux extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel_aplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 130, 120));
+        jPanel2_aux.add(jPanel_aplicacion_aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 130, 120));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(146, 146, 146));
         jLabel11.setText("Desarrolladores: Acosta Alvarado Nexar Jesús - Carrillo Moran Fatima Guadalupe ");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+        jPanel2_aux.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(146, 146, 146));
         jLabel14.setText(" Propiedad Intelectual Facultad de Ciencias Informaticas - ULEAM");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
+        jPanel2_aux.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(146, 146, 146));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Copyright_15px.png"))); // NOI18N
         jLabel12.setText("Copyright 2017 - 2018");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, -1));
+        jPanel2_aux.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 560, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2_aux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addComponent(jPanel2_aux, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel_homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_homeMouseEntered
+    private void jPanel_home_auxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_home_auxMouseEntered
         // TODO add your handling code here:
-        setColor(jPanel_home);
-    }//GEN-LAST:event_jPanel_homeMouseEntered
+        setColor(jPanel_home_aux);
+    }//GEN-LAST:event_jPanel_home_auxMouseEntered
 
-    private void jPanel_homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_homeMouseExited
+    private void jPanel_home_auxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_home_auxMouseExited
         // TODO add your handling code here:
-        resetColor(jPanel_home);
-    }//GEN-LAST:event_jPanel_homeMouseExited
+        resetColor(jPanel_home_aux);
+    }//GEN-LAST:event_jPanel_home_auxMouseExited
 
-    private void jPanel_ingresosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseEntered
+    private void jPanel_ingresos_auxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresos_auxMouseEntered
         // TODO add your handling code here:
-        setColor(jPanel_ingresos);
-    }//GEN-LAST:event_jPanel_ingresosMouseEntered
+        setColor(jPanel_ingresos_aux);
+    }//GEN-LAST:event_jPanel_ingresos_auxMouseEntered
 
-    private void jPanel_ingresosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseExited
+    private void jPanel_ingresos_auxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresos_auxMouseExited
         // TODO add your handling code here:
-        resetColor(jPanel_ingresos);
-    }//GEN-LAST:event_jPanel_ingresosMouseExited
+        resetColor(jPanel_ingresos_aux);
+    }//GEN-LAST:event_jPanel_ingresos_auxMouseExited
 
-    private void jPanel_crucesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_crucesMouseEntered
+    private void jPanel_cruces_auxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_cruces_auxMouseEntered
         // TODO add your handling code here:
-        setColor(jPanel_cruces);
-    }//GEN-LAST:event_jPanel_crucesMouseEntered
+        setColor(jPanel_cruces_aux);
+    }//GEN-LAST:event_jPanel_cruces_auxMouseEntered
 
-    private void jPanel_crucesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_crucesMouseExited
+    private void jPanel_cruces_auxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_cruces_auxMouseExited
         // TODO add your handling code here:
-        resetColor(jPanel_cruces);
-    }//GEN-LAST:event_jPanel_crucesMouseExited
+        resetColor(jPanel_cruces_aux);
+    }//GEN-LAST:event_jPanel_cruces_auxMouseExited
 
-    private void jPanel_analisisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisisMouseEntered
+    private void jPanel_analisis_auxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisis_auxMouseEntered
         // TODO add your handling code here:
-        setColor(jPanel_analisis);
-    }//GEN-LAST:event_jPanel_analisisMouseEntered
+        setColor(jPanel_analisis_aux);
+    }//GEN-LAST:event_jPanel_analisis_auxMouseEntered
 
-    private void jPanel_analisisMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisisMouseExited
+    private void jPanel_analisis_auxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisis_auxMouseExited
         // TODO add your handling code here:
-        resetColor(jPanel_analisis);
-    }//GEN-LAST:event_jPanel_analisisMouseExited
+        resetColor(jPanel_analisis_aux);
+    }//GEN-LAST:event_jPanel_analisis_auxMouseExited
 
-    private void jPanel_aplicacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacionMouseEntered
+    private void jPanel_aplicacion_auxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacion_auxMouseEntered
         // TODO add your handling code here:
-        setColor(jPanel_aplicacion);
-    }//GEN-LAST:event_jPanel_aplicacionMouseEntered
+        setColor(jPanel_aplicacion_aux);
+    }//GEN-LAST:event_jPanel_aplicacion_auxMouseEntered
 
-    private void jPanel_aplicacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacionMouseExited
+    private void jPanel_aplicacion_auxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacion_auxMouseExited
         // TODO add your handling code here:
-        resetColor(jPanel_aplicacion);
-    }//GEN-LAST:event_jPanel_aplicacionMouseExited
+        resetColor(jPanel_aplicacion_aux);
+    }//GEN-LAST:event_jPanel_aplicacion_auxMouseExited
 
-    private void jPanel_homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_homeMouseClicked
+    private void jPanel_home_auxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_home_auxMouseClicked
         // TODO add your handling code here:
        
         Auxiliar aux = new Auxiliar();
@@ -402,28 +424,28 @@ public class Modulos_aux extends javax.swing.JFrame {
        
 
 
-    }//GEN-LAST:event_jPanel_homeMouseClicked
+    }//GEN-LAST:event_jPanel_home_auxMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        Analisis anali = new Analisis();
-        anali.setVisible(true);
-        this.setVisible(false);
+//        Analisis anali = new Analisis();
+//        anali.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        Cruce1 rs = new Cruce1();
-        rs.setVisible(true);
-        this.setVisible(false);
+//        Cruce1 rs = new Cruce1();
+//        rs.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jPanel_ingresosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresosMouseClicked
+    private void jPanel_ingresos_auxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_ingresos_auxMouseClicked
         // TODO add your handling code here:
-                this.setVisible(false);
-        Ingresos_aux ingresos = new Ingresos_aux();
-        ingresos.setVisible(true);
-    }//GEN-LAST:event_jPanel_ingresosMouseClicked
+      this.setVisible(false);
+      Ingresos_aux ing_aux = new Ingresos_aux();
+      ing_aux.setVisible(true);
+    }//GEN-LAST:event_jPanel_ingresos_auxMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         this.setVisible(false);
@@ -431,24 +453,24 @@ public class Modulos_aux extends javax.swing.JFrame {
         visi.setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
 
-    private void jPanel_crucesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_crucesMouseClicked
+    private void jPanel_cruces_auxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_cruces_auxMouseClicked
+       this.setVisible(false);
+       cruces_activos_amenazas_aux cruces_aux = new cruces_activos_amenazas_aux();
+       cruces_aux.setVisible(true);
+    }//GEN-LAST:event_jPanel_cruces_auxMouseClicked
+
+    private void jPanel_analisis_auxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisis_auxMouseClicked
         this.setVisible(false);
-        cruces_activos_amenazas_aux visi = new cruces_activos_amenazas_aux();
-        visi.setVisible(true);
-    }//GEN-LAST:event_jPanel_crucesMouseClicked
+        Analisis_aux analisis_aux = new Analisis_aux();
+        analisis_aux.setVisible(true);
 
-    private void jPanel_analisisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_analisisMouseClicked
-        this.setVisible(false);
-        Analisis_aux analisi = new Analisis_aux();
-        analisi.setVisible(true);
+    }//GEN-LAST:event_jPanel_analisis_auxMouseClicked
 
-    }//GEN-LAST:event_jPanel_analisisMouseClicked
-
-    private void jPanel_aplicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacionMouseClicked
- this.setVisible(false);
+    private void jPanel_aplicacion_auxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_aplicacion_auxMouseClicked
+       this.setVisible(false);
         AplicacionIsos_aux aplicacion_aux = new AplicacionIsos_aux();
         aplicacion_aux.setVisible(true);
-    }//GEN-LAST:event_jPanel_aplicacionMouseClicked
+    }//GEN-LAST:event_jPanel_aplicacion_auxMouseClicked
     public void setColor(JPanel jpanel) {
 
         jpanel.setBackground(new java.awt.Color(204, 203, 203));
@@ -504,6 +526,7 @@ public class Modulos_aux extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -512,12 +535,13 @@ public class Modulos_aux extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public static javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel_analisis;
-    private javax.swing.JPanel jPanel_aplicacion;
-    private javax.swing.JPanel jPanel_cruces;
-    private javax.swing.JPanel jPanel_home;
-    private javax.swing.JPanel jPanel_ingresos;
+    private javax.swing.JLabel jLauxiliar;
+    public static javax.swing.JPanel jPanel2_aux;
+    private javax.swing.JPanel jPanel3_aux;
+    private javax.swing.JPanel jPanel_analisis_aux;
+    private javax.swing.JPanel jPanel_aplicacion_aux;
+    private javax.swing.JPanel jPanel_cruces_aux;
+    private javax.swing.JPanel jPanel_home_aux;
+    private javax.swing.JPanel jPanel_ingresos_aux;
     // End of variables declaration//GEN-END:variables
 }

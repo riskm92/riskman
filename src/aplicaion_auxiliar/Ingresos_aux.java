@@ -851,7 +851,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         this.setVisible(false);
-        Modulos modu=new Modulos();
+        Modulos_aux modu=new Modulos_aux();
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 

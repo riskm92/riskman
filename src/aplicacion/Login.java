@@ -33,6 +33,8 @@ public class Login extends javax.swing.JFrame {
 
     }
     public static String insert_activo_id_user = "";
+     public static String usuario_nombres = "";
+      public static String usuario_apellidos = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -231,6 +233,10 @@ public class Login extends javax.swing.JFrame {
                 //insert_activo_id_user=rs.getString("idusuario");
                 // Textid.setText(rs.getString("idusuario"));
                 insert_activo_id_user = rs.getString("idusuario");
+                usuario_nombres = rs.getString("nombres");
+                usuario_apellidos = rs.getString("apellidos");
+
+                 
 
                 //   Modulos.Text_id.setText(Textid.getText());
                 //Modulos.Text_id
@@ -261,7 +267,7 @@ public class Login extends javax.swing.JFrame {
             }
 
             if (capt.equals("Auxiliar")) {
-                Modulos_aux auxiliar = new Modulos_aux();
+                Modulos_aux auxiliar_aux = new Modulos_aux();
                 //  insert_activo_id_user = "select idusuario from usuario";
                 // Statement st2 = cxn.createStatement();
                 //  st2.executeQuery(insert_activo_id_user);
@@ -269,9 +275,9 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
                         + "satisfactoriamente al sistema", "Mensaje de bienvenida",
                         JOptionPane.INFORMATION_MESSAGE);
-                auxiliar.setVisible(true);
+                auxiliar_aux.setVisible(true);
                  dispose();
-                auxiliar.pack();
+                auxiliar_aux.pack();
 
             }
 

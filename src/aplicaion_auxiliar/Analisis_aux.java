@@ -234,7 +234,7 @@ String idfila="";
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         this.setVisible(false);
-        Modulos modu=new Modulos();
+        Modulos_aux modu=new Modulos_aux();
         modu.setVisible(true);      
         
     }//GEN-LAST:event_jLabel10MouseClicked

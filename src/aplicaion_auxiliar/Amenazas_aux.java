@@ -159,6 +159,7 @@ public class Amenazas_aux extends javax.swing.JFrame {
         jButton_guardar = new javax.swing.JButton();
         jButton_nuevo = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Bamenaza = new javax.swing.JButton();
         Bactivo = new javax.swing.JButton();
@@ -426,6 +427,9 @@ public class Amenazas_aux extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel15.setText("este es auxiliar");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         jPanel_amenazas.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 60));
 
@@ -975,7 +979,7 @@ public class Amenazas_aux extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         this.setVisible(false);
-        Modulos modu = new Modulos();
+        Modulos_aux modu = new Modulos_aux();
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
 
@@ -1032,6 +1036,7 @@ public class Amenazas_aux extends javax.swing.JFrame {
     public static javax.swing.JButton jButton_nuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel15;
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

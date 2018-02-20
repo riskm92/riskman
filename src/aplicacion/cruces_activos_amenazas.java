@@ -12,38 +12,39 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
-import javax.swing.text.TableView.TableRow;
 import metodos.Conexionbd;
-import metodos.JtableComboBox;
 
 /**
  *
  * @author Leonardo
  */
-public class cruces_activos_amenazas extends javax.swing.JFrame {
+public final class cruces_activos_amenazas extends javax.swing.JFrame {
 
     /**
      * Creates new form cruces_activos_amenazas
      */
     Conexionbd conxlogin = new Conexionbd();
     Connection cxn = conxlogin.getConnection();
+    public String iden = "";
+    public String nom_ame = "";
+    public int id_Activo = 0;
+    public int id_Amenaza = 0;
 
     public cruces_activos_amenazas() {
+//        int ID_activo=id_Activo;
+//        int ID_amenaza=id_Amenaza;
+
         initComponents();
         this.setLocationRelativeTo(null);
         llenartabla_amenaza();
@@ -59,7 +60,12 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
         Object[] amenaza = {"Amenaza/Activo"};
         DefaultTableModel modelo = new DefaultTableModel(null, amenaza);
         String datos[] = new String[1];
+
         Object dat;
+        int fila = jTable_cruces.getRowCount();
+        int colum = jTable_cruces.getColumnCount();
+        int i;
+        int j;
         String sqld = "SELECT nombre_amenaza from amenaza";
         String sql = "SELECT identificador from activo where aplicacion = 'SI'";
         try {
@@ -70,61 +76,63 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
             while (rss.next()) {
                 datos[0] = rss.getString("nombre_amenaza");
                 modelo.addRow(datos);
-//                fila = modelo.getRowCount();
+
             }
-//            int tamaño = 0;
             while (rs.next()) {
                 dat = rs.getString("identificador");
+                String da=(String) dat;
+                iden = da;
                 modelo.addColumn(dat);
+                
+                
             }
-//                tamaño = modelo.getColumnCount();
-//                columna = modelo.getColumnCount();
 
-//            String[] positions = {"SI", "NO"};
-//            JComboBox combo = null;
-//                    combo = new JComboBox<String>(positions);
-//            combo.addActionListener(new ActionListener() {
-//                public void actionPerformed(ActionEvent ae) {
-//                    
-////                    JOptionPane.showMessageDialog(null, "" + );
-//                }
-//            });
-//JComboBox comboBox = new JComboBox();
-//comboBox.addItem("SI");
-//comboBox.addItem("NO");
-//// String [] dato = modelo.getValueAt(fila, fila);
-//            
-////for (int i = 0; i < 5; i++) {
-//              TableColumn column = jTable_cruces.getColumnModel().getColumn(1);
-//             column.setCellEditor(new DefaultCellEditor(comboBox)); 
-////}
-//    for (int j =0; j < fila; j++){
-//                    jTable_cruces.getColumn(1);
-//                    //modelo.addRow(amenaza);
-//                    TableColumn col1 = jTable_cruces.getColumnModel().getColumn(j);
-////                col1.setCellRenderer(new DefaultTableCellRenderer());
-//                    
-//                }
-//                
-//                TableColumn col1 = jTable_cruces.getColumnModel().getColumn(i);
-//                col1.setCellRenderer(new DefaultTableCellRenderer());
-//                col1.setCellEditor(new DefaultCellEditor(combo));
             jTable_cruces.setModel(modelo);
 
-//            
-//            TableColumn col2 = jTable_cruces.getColumnModel().getColumn(2);
-//            TableColumn col3 = jTable_cruces.getColumnModel().getColumn(3);
-//            TableColumn col4 = jTable_cruces.getColumnModel().getColumn(4);
-//
-//            col2.setCellEditor(new DefaultCellEditor(combo));
-//            col3.setCellEditor(new DefaultCellEditor(combo));
-//            col4.setCellEditor(new DefaultCellEditor(combo));
             ancho_columnas();
         } catch (SQLException ex) {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+//    void actualizar() {
+////       llenartabla_amenaza();
+//        DefaultTableModel modelo = new DefaultTableModel();
+//        String datos[] = new String[100];
+//          int colum= jTable_cruces.getColumnCount();
+//          for (int i = 0; colum < 100; i++) {
+//                datos[i] = "";
+//                   
+//        }
+//        
+//          
+//
+//                modelo.addColumn(datos);
+//               jTable_cruces.setModel(modelo);        
+//    }
+//            
+//        
+//            int fila = jTable_cruces.getRowCount();
+//        int colum = jTable_cruces.getColumnCount();
+//        int i;
+//        int j;
+//Object ff=""; 
+//        String valores = "";
+//        for (i = 0; i < fila; i++) {
+//            for (j = 1; j < colum; j++) {
+//                TableModel dataModel = null;
+//                jTable_cruces.setModel(dataModel);
+//                                   jTextField_nombres.setText("");
+//                jTable_cruces.remove(j);
+//             String valor = (String) jTable_cruces.getValueAt(i, j).toString();
+//                // Con esta condición solo ponemos comas hasta el penúltimo valor :)
+//                if ((String) jTable_cruces.getValueAt(i, j) == null) {
+//                    valores += valor;
+//                    valores += ",";
+//            }
+//        }
+//        System.out.println("" + valores);
+//        JOptionPane.showMessageDialog(null, "valores de la columna1: " + valores);
     public void guardar_cruces() {
 
         int colum = jTable_cruces.getColumnCount();
@@ -138,7 +146,7 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
 //                    JOptionPane.showMessageDialog(null, "" + );
             }
         });
-        int e=1;
+        int e = 1;
         int i;
         for (i = e; i < colum; i++) {
 
@@ -210,18 +218,6 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable_cruces);
-        if (jTable_cruces.getColumnModel().getColumnCount() > 0) {
-            jTable_cruces.getColumnModel().getColumn(0).setHeaderValue("Amenaza/Activo");
-            jTable_cruces.getColumnModel().getColumn(1).setHeaderValue("A1");
-            jTable_cruces.getColumnModel().getColumn(2).setHeaderValue("A2");
-            jTable_cruces.getColumnModel().getColumn(3).setHeaderValue("A3");
-            jTable_cruces.getColumnModel().getColumn(4).setHeaderValue("A4");
-            jTable_cruces.getColumnModel().getColumn(5).setHeaderValue("A5");
-            jTable_cruces.getColumnModel().getColumn(6).setHeaderValue("A6");
-            jTable_cruces.getColumnModel().getColumn(7).setHeaderValue("A7");
-            jTable_cruces.getColumnModel().getColumn(8).setHeaderValue("A8");
-            jTable_cruces.getColumnModel().getColumn(9).setHeaderValue("A9");
-        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -336,54 +332,46 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+void insertar_cruces() {
+//     String sql ="insert into activo_amenaza( amenazas_idamenaza='"+ +"', activos_idactivos='"+ +"', aplicacion='"+ +"')values()";
 
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int fila = jTable_cruces.getRowCount();
         int colum = jTable_cruces.getColumnCount();
-        int i;
+
+        int fila = jTable_cruces.getRowCount();
+        int i = 0;
         int j;
         String valores = "";
-        for (i = 0; i < fila; i++) {
-            for (j = 1; j < colum; j++) {
+//        String datos[] = new String[100];
+
+        for (j = 1; j < colum; j++) {
+            for (i = 0; i < fila; i++) {
+
                 String valor = (String) jTable_cruces.getValueAt(i, j);
                 // Con esta condición solo ponemos comas hasta el penúltimo valor :)
+
                 if ((String) jTable_cruces.getValueAt(i, j) == null) {
 
                 } else {
+
                     valores += valor;
-                    valores += ",";
+//                    Object col = jTable_cruces.getColumnModel().getColumn(0);
+                   
+                  
+//                    String sql="insert into activo_amenaza(aplicacion='"+valores+"')values()";
+           
+                    
                 }
 
             }
+                
         }
-
-        System.out.println("" + valores);
+     
+        
+//                System.out.println(Arrays.toString(datos));
         JOptionPane.showMessageDialog(null, "valores de la columna1: " + valores);
-// TODO add your handling code here:
-//          jTable_cruces.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-//            @Override
-//            public void valueChanged(ListSelectionEvent e) {
-//       int fila = jTable_cruces.getSelectedRow();
-//      int columna = jTable_cruces.getSelectedColumn();
-//                  
-//                    
-//                        //int fila = jTable_registro.getSelectedRow();
-//                     String ff =jTable_cruces.getValueAt(fila, columna).toString();
-//
-//                       jTextField1.setText(ff);
-//                        System.out.println(""+apli);
-//        DefaultTableModel modelo = new DefaultTableModel();
-//
-//     for(int i=0;i<modelo.getRowCount();i++){
-//                            for(int j=0;j<modelo.getColumnCount();j++){
-//
-//                        String a=modelo.getValueAt(i, j).toString();
-//                                System.out.println(""+ a);
-//     }}
-//    
-//    }
-//            
-//           });
+
     }//GEN-LAST:event_jButton1ActionPerformed
     public void setColor(JButton jbutton) {
 
@@ -404,14 +392,38 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        obtener_id_activo(); 
     }//GEN-LAST:event_jButton2ActionPerformed
+     void obtener_id_activo() {
+              JTableHeader colum = jTable_cruces.getTableHeader();
+             int co =colum.getColumnModel().getColumnCount();
+//       int fila = jTable_cruces.getRowCount();
+        int i;
+        int j;
+            for (i = 0; i < co; i++) {
+              String valo = (String) jTable_cruces.getValueAt(0, i);
+                    System.out.println(""+valo);
+        }
+    }
+    void obtener_id_amenaza() {
+//              int colum = jTable_cruces.getColumnCount();
 
+       int fila = jTable_cruces.getRowCount();
+        int i = 0;
+        int j;
+            for (i = 0; i < fila; i++) {
+              String valo = (String) jTable_cruces.getValueAt(i, 0);
+                    System.out.println(""+valo);
+        }
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+                      obtener_id_amenaza();
+//
+//        System.out.println(iden + "" + nom_ame);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
-        
+        System.out.println(""+iden);
     }//GEN-LAST:event_jButton_nuevoActionPerformed
 
     /**
@@ -466,4 +478,9 @@ public class cruces_activos_amenazas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_cruces;
     // End of variables declaration//GEN-END:variables
+
+    private void removeAll(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -17,9 +17,18 @@ public class Modulos extends javax.swing.JFrame {
     /**
      * Creates new form Modulos
      */
+    public static String user_nombres = "";
+    public static String user_apellidos = "";
+
     public Modulos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        user_nombres=Login.usuario_nombres;
+        user_apellidos=Login.usuario_apellidos;
+        
+        jLadministrador.setText(user_nombres+" "+user_apellidos);
+        
+
 
     }
 
@@ -35,6 +44,8 @@ public class Modulos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLadministrador = new javax.swing.JLabel();
         jPanel_ingresos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,7 +74,7 @@ public class Modulos extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(41, 128, 185));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Logout_Rounded_Left_40px.png"))); // NOI18N
         jLabel13.setText("Logout");
@@ -73,18 +84,36 @@ public class Modulos extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(86, 86, 86));
+        jLabel15.setText("Bienvenido Administrador:");
+
+        jLadministrador.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLadministrador.setForeground(new java.awt.Color(86, 86, 86));
+        jLadministrador.setText("jLabel16");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(762, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(386, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLadministrador)
+                .addGap(90, 90, 90)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel15)
+                    .addComponent(jLadministrador))
+                .addGap(33, 33, 33))
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 100));
@@ -501,6 +530,7 @@ public class Modulos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -509,6 +539,7 @@ public class Modulos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLadministrador;
     public static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_analisis;
