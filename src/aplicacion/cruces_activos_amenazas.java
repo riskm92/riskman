@@ -42,8 +42,6 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
 //  public int id_Activo = obtener_id_activo();
 //    public int id_Amenaza = obtener_id_amenaza();
 
-    
-
     public cruces_activos_amenazas() {
 //        int id_Activo1 = id_Activo;
         initComponents();
@@ -81,7 +79,7 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
             }
             while (rs.next()) {
                 dat = rs.getString("identificador");
-             
+
                 modelo.addColumn(dat);
 
             }
@@ -93,7 +91,6 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
     public void guardar_cruces() {
 
@@ -324,11 +321,9 @@ void insertar_cruces() {
 
 //               String apli=obtener_aplicacion();
 //                 int id_activo=obtener_id_activo();
-       JOptionPane.showMessageDialog(null, obtener_id_amenaza());
-               
-        
-//                
+//        JOptionPane.showMessageDialog(null, obtener_id_amenaza());
 
+//                
 //        String sql = "insert into activo_amenaza(amenazas_idamenaza ,activos_idactivos, aplicacion)values(?,?,?)";
 //        try {
 //            PreparedStatement dato = cxn.prepareStatement(sql);
@@ -340,53 +335,63 @@ void insertar_cruces() {
 //        } catch (SQLException e) {
 //        }
     }//GEN-LAST:event_jButton2ActionPerformed
-    public  int obtener_id_activo() {
-int id_act = 0 ;
+    public int obtener_id_activo() {
+        int id_act = 0;
 
-try {   
+        try {
 //            int filaa = jTable_cruces.getRowCount();
             for (int i = 1; i < jTable_cruces.getRowCount(); i++) {
-                 String id_activ = jTable_cruces.getColumnName(i);
+                String id_activ = jTable_cruces.getColumnName(i);
 //                JOptionPane.showMessageDialog(null, jTable_cruces.getColumnName(i));
-            String sqlactivo = "select idactivo from activo where identificador='"+id_activ+"'";
-              Statement st = cxn.createStatement();
+                String sqlactivo = "select idactivo from activo where identificador='" + id_activ + "'";
+                Statement st = cxn.createStatement();
                 ResultSet rs = st.executeQuery(sqlactivo);
-            while (rs.next()) {
-                     id_act = rs.getInt("idactivo");
-                   
-            }    
-                  
-                
-                            
-//                   JOptionPane.showMessageDialog(this, id_act);
+                while (rs.next()) {
+                    id_act = rs.getInt("idactivo");
+
                 }
 
+//                   JOptionPane.showMessageDialog(this, id_act);
+            }
+
         } catch (Exception e) {
-         
+
         }
         return id_act;
 
-       
-
     }
 
-    public int obtener_id_amenaza() {
+    public void obtener_id_amenaza() {
 //              int colum = jTable_cruces.getColumnCount();
-
-        int fil = jTable_cruces.getRowCount();
-      String sqlamenaza="";
        
+        int fil = jTable_cruces.getRowCount();
+        String sqlamenaza = "";
+        int id_act = 0;
         int id_ame = 0;
         try {
+            for (int i = 1; i < jTable_cruces.getRowCount(); i++) {
+                String id_activ = jTable_cruces.getColumnName(i);
+//                JOptionPane.showMessageDialog(null, jTable_cruces.getColumnName(i));
+                String sqlactivo = "select idactivo from activo where identificador='" + id_activ + "'";
+                Statement st = cxn.createStatement();
+                ResultSet rs = st.executeQuery(sqlactivo);
+                while (rs.next()) {
+                    id_act = rs.getInt("idactivo");
+
+                }
+
+//                   JOptionPane.showMessageDialog(this, id_act);
+            }
             for (int i = 0; i < fil; i++) {
-                  String nombre_ame = (String) jTable_cruces.getValueAt(i, 0);
+                String nombre_ame = (String) jTable_cruces.getValueAt(i, 0);
                 sqlamenaza = "select idamenaza from amenaza where nombre_amenaza='" + nombre_ame + "'";
 
-                  Statement st = cxn.createStatement();
+                Statement st = cxn.createStatement();
                 ResultSet rs = st.executeQuery(sqlamenaza);
                 while (rs.next()) {
                     id_ame = rs.getInt("idamenaza");
-                     /*
+                   
+                    /* 
                     
                         obtengo el idactivo
                         invoco una funcion booleana retorne true (si existe idamenaza, con idactvo)
@@ -394,19 +399,15 @@ try {
                         else
                               insert into activoamenaza values (amemanza_idamenaza,activos_idactivos, aplicacion)
                     
-                    */
+                     */
                     JOptionPane.showMessageDialog(this, id_ame);
                 }
-              
 
             }
-            
-              
-          
-        } 
-        catch (Exception e) {
+
+        } catch (Exception e) {
         }
-        return id_ame;
+        
 
     }
 
@@ -416,7 +417,7 @@ try {
         int fila = jTable_cruces.getRowCount();
         int i = 0;
         int j;
-        String valores="" ;
+        String valores = "";
 //        String datos[] = new String[100];
 
         for (j = 1; j < colum; j++) {
@@ -430,9 +431,8 @@ try {
                 } else {
 
                     valores += valor;
-                 
-//                    Object col = jTable_cruces.getColumnModel().getColumn(0);
 
+//                    Object col = jTable_cruces.getColumnModel().getColumn(0);
 //                    String sql="insert into activo_amenaza(aplicacion='"+valores+"')values()";
                 }
 
@@ -442,12 +442,12 @@ try {
 //                System.out.println(Arrays.toString(datos));
 //        JOptionPane.showMessageDialog(null, "valores de la columna1: " + valores);
         return valores;
-       
+
     }
 
-  
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
+
 //
 //        System.out.println(iden + "" + nom_ame);
     }//GEN-LAST:event_jButton3ActionPerformed
