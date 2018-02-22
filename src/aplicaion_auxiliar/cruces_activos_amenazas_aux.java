@@ -173,6 +173,7 @@ public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(233, 235, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 560));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

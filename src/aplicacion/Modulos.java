@@ -85,11 +85,11 @@ public class Modulos extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(86, 86, 86));
+        jLabel15.setForeground(new java.awt.Color(68, 68, 68));
         jLabel15.setText("Bienvenido Administrador:");
 
         jLadministrador.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLadministrador.setForeground(new java.awt.Color(86, 86, 86));
+        jLadministrador.setForeground(new java.awt.Color(68, 68, 68));
         jLadministrador.setText("jLabel16");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -97,11 +97,11 @@ public class Modulos extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(386, Short.MAX_VALUE)
+                .addContainerGap(381, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLadministrador)
-                .addGap(90, 90, 90)
+                .addGap(95, 95, 95)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );

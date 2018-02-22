@@ -141,6 +141,7 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(233, 235, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 560));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -385,7 +386,15 @@ try {
                 ResultSet rs = st.executeQuery(sqlamenaza);
                 while (rs.next()) {
                     id_ame = rs.getInt("idamenaza");
-               
+                     /*
+                    
+                        obtengo el idactivo
+                        invoco una funcion booleana retorne true (si existe idamenaza, con idactvo)
+                             update aplicacion=valorjalado from activoamenaza where amenazas_idamenaza
+                        else
+                              insert into activoamenaza values (amemanza_idamenaza,activos_idactivos, aplicacion)
+                    
+                    */
                     JOptionPane.showMessageDialog(this, id_ame);
                 }
               

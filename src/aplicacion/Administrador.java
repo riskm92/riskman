@@ -134,6 +134,7 @@ public class Administrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel_principal.setBackground(new java.awt.Color(233, 235, 238));
         jPanel_principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -262,9 +263,11 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel_nombres)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel_apellidos)))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,9 +276,11 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel_cedula)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel_tipo)))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,9 +289,11 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel_correo)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabel_celular)))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)

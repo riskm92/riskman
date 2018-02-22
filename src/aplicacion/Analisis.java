@@ -90,6 +90,7 @@ String idfila="";
         jPanel1.setMinimumSize(new java.awt.Dimension(900, 560));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(233, 235, 238));
         jPanel3.setMinimumSize(new java.awt.Dimension(900, 560));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

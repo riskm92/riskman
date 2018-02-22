@@ -96,6 +96,7 @@ public class AplicacionIsos extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(900, 560));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(233, 235, 238));
         jPanel3.setMinimumSize(new java.awt.Dimension(900, 560));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -145,7 +146,7 @@ public class AplicacionIsos extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel1.setText("Iso 20701 :");
+        jLabel1.setText("Iso 27001 :");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel2.setText("Iso 17799 : ");

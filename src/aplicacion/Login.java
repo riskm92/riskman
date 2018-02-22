@@ -63,6 +63,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         TextUsuario = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -95,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img_login_1.png"))); // NOI18N
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 196, 200));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 210, 200));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(233, 235, 238));
@@ -108,16 +109,16 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         jLabel3.setText("Loguearse");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         jLabel4.setText("Usuario:");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         jLabel5.setText("Contraseña:");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, -1, 21));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, 21));
 
         BIngresar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BIngresar.setText("Ingresar");
@@ -128,7 +129,7 @@ public class Login extends javax.swing.JFrame {
                 BIngresarActionPerformed(evt);
             }
         });
-        jPanel4.add(BIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 110, 40));
+        jPanel4.add(BIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 110, 40));
 
         TextContraseña.setBackground(new java.awt.Color(233, 235, 238));
         TextContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -139,21 +140,21 @@ public class Login extends javax.swing.JFrame {
                 TextContraseñaActionPerformed(evt);
             }
         });
-        jPanel4.add(TextContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, 30));
+        jPanel4.add(TextContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 140, 30));
 
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 180, 10));
+        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 180, 10));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 30, 30));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 30, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pass.png"))); // NOI18N
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(51, 51, 51));
         jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 180, 10));
+        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 180, 10));
 
         TextUsuario.setBackground(new java.awt.Color(233, 235, 238));
         TextUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -165,7 +166,10 @@ public class Login extends javax.swing.JFrame {
                 TextUsuarioActionPerformed(evt);
             }
         });
-        jPanel4.add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 140, 30));
+        jPanel4.add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 140, 30));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_5.png"))); // NOI18N
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 200, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,7 +181,7 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -362,6 +366,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
