@@ -34,6 +34,9 @@ public class RegistroUsuario_aux extends javax.swing.JFrame {
     public RegistroUsuario_aux() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jButton_eliminar.setEnabled(false);
+        jComboBox_tipo.setEnabled(false);
+        jButton_guardar.setEnabled(false);
         llenartabla();
         Generarnumeracion();
         //this.setLocationRelativeTo(null);

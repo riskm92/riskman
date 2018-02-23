@@ -30,7 +30,7 @@ public class Analisis_aux extends javax.swing.JFrame {
      */
     public Analisis_aux() {
         initComponents();
-        Bguardar.setVisible(false);
+        Bguardar.setEnabled(false);
         this.setLocationRelativeTo(null);
 
     }
@@ -166,12 +166,17 @@ String idfila="";
         Breporte.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Breporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
         Breporte.setText("Reporte");
-        jPanel5.add(Breporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
+        Breporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BreporteActionPerformed(evt);
+            }
+        });
+        jPanel5.add(Breporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
 
         Bexportar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Bexportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
         Bexportar.setText("Exportar");
-        jPanel5.add(Bexportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
+        jPanel5.add(Bexportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
 
         Bguardar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Bguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
@@ -181,7 +186,7 @@ String idfila="";
                 BguardarActionPerformed(evt);
             }
         });
-        jPanel5.add(Bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
+        jPanel5.add(Bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
 
         Banalisis.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Banalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Analyze_30px.png"))); // NOI18N
@@ -243,6 +248,10 @@ String idfila="";
     private void BguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BguardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BguardarActionPerformed
+
+    private void BreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BreporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BreporteActionPerformed
 
     /**
      * @param args the command line arguments

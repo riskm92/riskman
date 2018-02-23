@@ -49,7 +49,8 @@ public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         llenartabla_amenaza();
         guardar_cruces();
-        Bguardar.setVisible(false);
+        Bguardar.setEnabled(false);
+        Bnuevo.setEnabled(false);
 //       llenar_amenaza(); 
     }
 
@@ -300,11 +301,11 @@ public class cruces_activos_amenazas_aux extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(Bnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Bguardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Bexportar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Breporte)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Bguardar)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(

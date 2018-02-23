@@ -40,11 +40,13 @@ public class Amenazas_aux extends javax.swing.JFrame {
         AM5();
         AM6();
         this.setLocationRelativeTo(null);
+        jButton_eliminar1.setEnabled(false);
     }
 
     void Limpiar() {
         Textamenaza.setText("");
         tipo_amenaza.setSelectedIndex(0);
+        
 
     }
 
@@ -160,6 +162,7 @@ public class Amenazas_aux extends javax.swing.JFrame {
         jButton_nuevo = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jButton_eliminar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Bamenaza = new javax.swing.JButton();
         Bactivo = new javax.swing.JButton();
@@ -431,6 +434,17 @@ public class Amenazas_aux extends javax.swing.JFrame {
 
         jLabel15.setText("este es auxiliar");
         jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+
+        jButton_eliminar1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton_eliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Delete_Row_30px_1.png"))); // NOI18N
+        jButton_eliminar1.setText("Eliminar");
+        jButton_eliminar1.setBorder(null);
+        jButton_eliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_eliminar1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton_eliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 100, 40));
 
         jPanel_amenazas.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 60));
 
@@ -984,6 +998,15 @@ public class Amenazas_aux extends javax.swing.JFrame {
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void jButton_eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminar1ActionPerformed
+        eliminar1();
+        eliminar2();
+        eliminar3();
+        eliminar4();
+        eliminar5();
+        eliminar6();
+    }//GEN-LAST:event_jButton_eliminar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1032,6 +1055,7 @@ public class Amenazas_aux extends javax.swing.JFrame {
     private javax.swing.JButton Bactivo;
     private javax.swing.JButton Bamenaza;
     public static javax.swing.JTextField Textamenaza;
+    public static javax.swing.JButton jButton_eliminar1;
     public static javax.swing.JButton jButton_guardar;
     public static javax.swing.JButton jButton_modificar;
     public static javax.swing.JButton jButton_nuevo;

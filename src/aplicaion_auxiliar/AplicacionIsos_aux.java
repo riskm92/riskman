@@ -24,16 +24,15 @@ public class AplicacionIsos_aux extends javax.swing.JFrame {
 
     DefaultTableModel modelo;
 
-    /**
+    /** 
      * Creates new form Analisis
      */
     public AplicacionIsos_aux() {
         initComponents();
-        Baplicar.setVisible(false);
-        jL17799.setVisible(false);
-        jL20701.setVisible(false);
-        jC17799.setVisible(false);
-        jC20701.setVisible(false);
+        Baplicar.setEnabled(false);
+     
+        jC17799.setEnabled(false);
+        jC20701.setEnabled(false);
         this.setLocationRelativeTo(null);
 
     }
@@ -265,7 +264,7 @@ public class AplicacionIsos_aux extends javax.swing.JFrame {
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
         jButton7.setText("Importar");
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
+        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
 
         Baplicar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Baplicar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
@@ -275,7 +274,7 @@ public class AplicacionIsos_aux extends javax.swing.JFrame {
                 BaplicarActionPerformed(evt);
             }
         });
-        jPanel5.add(Baplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
+        jPanel5.add(Baplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Analyze_30px.png"))); // NOI18N

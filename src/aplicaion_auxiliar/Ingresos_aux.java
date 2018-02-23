@@ -39,6 +39,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
         insert_dato = lg.insert_activo_id_user;
         initComponents();
         llenartabla();
+        jButton_eliminar.setEnabled(false);
         //  id.setVisible(true);
       
         // id.setText(dd);
@@ -368,6 +369,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
         jButton_guardar = new javax.swing.JButton();
         jButton_nuevo = new javax.swing.JButton();
         jButton_modificar = new javax.swing.JButton();
+        jButton_eliminar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         buscar_activo = new javax.swing.JComboBox<>();
@@ -537,7 +539,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
                 jButton_guardarActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 100, 40));
+        jPanel4.add(jButton_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 100, 40));
 
         jButton_nuevo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Available_Updates_30px_2.png"))); // NOI18N
@@ -548,7 +550,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
                 jButton_nuevoActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 100, 40));
+        jPanel4.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, 40));
 
         jButton_modificar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Edit_Property_30px.png"))); // NOI18N
@@ -559,7 +561,18 @@ public class Ingresos_aux extends javax.swing.JFrame {
                 jButton_modificarActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 100, 40));
+        jPanel4.add(jButton_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 100, 40));
+
+        jButton_eliminar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Delete_Row_30px_1.png"))); // NOI18N
+        jButton_eliminar.setText("Eliminar");
+        jButton_eliminar.setBorder(null);
+        jButton_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_eliminarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 100, 40));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 760, 230));
 
@@ -893,6 +906,24 @@ public class Ingresos_aux extends javax.swing.JFrame {
                  
 
     }//GEN-LAST:event_BamenazaActionPerformed
+
+    private void jButton_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_eliminarActionPerformed
+        try {
+            //            int fila = jTable_activo.getSelectedRow();
+            String sql = "delete from activo where idactivo=" + id_activo();
+
+            Statement sent = cxn.createStatement();
+            int n = sent.executeUpdate(sql);
+            if (n > 0) {
+
+                JOptionPane.showMessageDialog(null, "datos eliminados");
+                llenartabla();
+                Limpiar();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error" + e.getMessage());
+        }
+    }//GEN-LAST:event_jButton_eliminarActionPerformed
     public void setColor(JButton jpanel) {
 
         jpanel.setBackground(new java.awt.Color(52, 73, 94));
@@ -953,6 +984,7 @@ public class Ingresos_aux extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> buscar_activo;
     public static javax.swing.JTextField cantidad;
     public static javax.swing.JTextField identificador;
+    private javax.swing.JButton jButton_eliminar;
     private javax.swing.JButton jButton_guardar;
     private javax.swing.JButton jButton_modificar;
     private javax.swing.JButton jButton_nuevo;
