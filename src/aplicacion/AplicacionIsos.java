@@ -74,14 +74,14 @@ public class AplicacionIsos extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTable_analisis = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jC27001 = new javax.swing.JComboBox<>();
+        jC17799 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable_isos = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
@@ -102,8 +102,8 @@ public class AplicacionIsos extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 4), "Aplicacion de Iso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
-        jTable2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_analisis.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTable_analisis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -135,15 +135,13 @@ public class AplicacionIsos extends javax.swing.JFrame {
                 "Activo", "Probabilidad", "Impacto", "Riesgo"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTable_analisis);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC27001.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jC17799.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel1.setText("Iso 27001 :");
@@ -151,7 +149,7 @@ public class AplicacionIsos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel2.setText("Iso 17799 : ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_isos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -180,7 +178,7 @@ public class AplicacionIsos extends javax.swing.JFrame {
                 "Activo", "Iso 27001", "Iso 17799"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable_isos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -191,27 +189,28 @@ public class AplicacionIsos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jC27001, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jC17799, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
+                    .addComponent(jC27001, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jC17799, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -229,12 +228,14 @@ public class AplicacionIsos extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 3, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 930, 470));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 930, 480));
 
         jPanel5.setBackground(new java.awt.Color(113, 128, 147));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -305,8 +306,71 @@ public class AplicacionIsos extends javax.swing.JFrame {
         jbutton.setBackground(new java.awt.Color(47, 54, 64));
 
     }
+
+    void llenartabla_analisis() {
+
+        Object[] columnas = {"Activo", "Prob", "Imp", "Rgo"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+        String datos[] = new String[5];
+//        String datos1[] = new String[1];
+        String sql_act_ame = "  select nombre_activo, probabilidad, impacto, riesgo from analisis "
+                + "inner join activo_amenaza on analisis.activo_amenaza_id=activo_amenaza.id_cruce  "
+                + "inner join activo on activo_amenaza.activos_idactivos=activo.idactivo; ";
+//        String sql_ame_nom = "select ame.nombre_amenaza from amenaza ame join activo_amenaza am on am.amenazas_idamenaza=ame.idamenaza"
+//                + " where am.amenazas_idamenaza";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql_act_ame);
+
+            while (rs.next()) {
+                datos[0] = rs.getString("nombre_activo");
+                datos[1] = rs.getString("probabilidad");
+                datos[2] = rs.getString("impacto");
+                datos[3] = rs.getString("riesgo");
+                modelo.addRow(datos);
+
+            }
+
+            jTable_analisis.setModel(modelo);
+            ancho_columnas();
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void llenar_combox() {
+        String sql_combox1 = "select sp.ItemSubtitulo, sp.nombre_titulo, c.item, cp.ItemTitulo, c.descripcion from control c "
+                + "inner join subtitulo_politica sp on c.Subtitulo_politica_idSubtitulo_politica=sp.idSubtitulo_politica "
+                + "inner join cpolitica cp on sp.cPolitica_idcPolitica=cp.idcPolitica where nombre_Iso='27001'";
+          String sql_combox2 = "select sp.ItemSubtitulo, sp.nombre_titulo, c.item, cp.ItemTitulo, c.descripcion from control c "
+                + "inner join subtitulo_politica sp on c.Subtitulo_politica_idSubtitulo_politica=sp.idSubtitulo_politica "
+                + "inner join cpolitica cp on sp.cPolitica_idcPolitica=cp.idcPolitica where nombre_Iso='17799'";
+        try {
+            Statement st = cxn.createStatement();
+            ResultSet rs = st.executeQuery(sql_combox1);
+             Statement stt = cxn.createStatement();
+             ResultSet rst = stt.executeQuery(sql_combox2);
+            while (rs.next()) {
+                String a=rs.getString("ItemTitulo");
+                String b=rs.getString("descripcion");
+                    jC27001.addItem(a+" - "+b);
+                  
+            }
+              while (rst.next()) {
+                String a=rs.getString("ItemTitulo");
+                String b=rs.getString("descripcion");
+                    jC17799.addItem(a+" - "+b);
+                  
+            }
+         
+//            jC17799;
+        } catch (Exception e) {
+        }
+
+    }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        llenartabla_analisis();
+        llenar_combox();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -316,8 +380,15 @@ public class AplicacionIsos extends javax.swing.JFrame {
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         this.setVisible(false);
         Modulos modu = new Modulos();
-        modu.setVisible(true); 
+        modu.setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
+    public void ancho_columnas() {
+        jTable_analisis.getColumnModel().getColumn(0).setPreferredWidth(210);
+        jTable_analisis.getColumnModel().getColumn(1).setPreferredWidth(55);
+        jTable_analisis.getColumnModel().getColumn(2).setPreferredWidth(45);
+        jTable_analisis.getColumnModel().getColumn(3).setPreferredWidth(50);
+
+    }
 
     /**
      * @param args the command line arguments
@@ -361,8 +432,8 @@ public class AplicacionIsos extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jC17799;
+    private javax.swing.JComboBox<String> jC27001;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -373,7 +444,7 @@ public class AplicacionIsos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable_analisis;
+    private javax.swing.JTable jTable_isos;
     // End of variables declaration//GEN-END:variables
 }

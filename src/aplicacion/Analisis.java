@@ -89,11 +89,12 @@ public class Analisis extends javax.swing.JFrame {
         jTable_analisis = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jBresult = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jButton_nuevo = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -181,17 +182,17 @@ public class Analisis extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 120, -1));
+        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 120, -1));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
-        jButton7.setText("Exportar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jBresult.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jBresult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Calculator_30px.png"))); // NOI18N
+        jBresult.setText("Riesgo");
+        jBresult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jBresultActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
+        jPanel5.add(jBresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
@@ -231,6 +232,16 @@ public class Analisis extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, 40));
+
+        jButton10.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
+        jButton10.setText("Exportar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 120, -1));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
@@ -408,14 +419,18 @@ public class Analisis extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jBresultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBresultActionPerformed
         obtener_result();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jBresultActionPerformed
 
     private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
         llenartabla_analisis();
         mostrar_combox();
     }//GEN-LAST:event_jButton_nuevoActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,9 +468,10 @@ public class Analisis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBresult;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     public static javax.swing.JButton jButton_nuevo;
