@@ -30,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.text.TableView.TableRow;
 import metodos.Conexionbd;
-import metodos.JtableComboBox;
+
 
 /**
  *

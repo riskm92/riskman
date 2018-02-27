@@ -335,6 +335,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel13.setText("Contraseña:");
 
         jComboBox_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Auxiliar" }));
+        jComboBox_tipo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox_tipoItemStateChanged(evt);
+            }
+        });
         jComboBox_tipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_tipoActionPerformed(evt);
@@ -779,6 +784,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
         Modulos modu=new Modulos();
         modu.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jComboBox_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_tipoItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_tipoItemStateChanged
 
     /**
      * @param args the command line arguments

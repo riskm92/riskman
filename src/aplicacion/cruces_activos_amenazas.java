@@ -26,6 +26,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import jdk.nashorn.internal.scripts.JO;
 import metodos.Conexionbd;
+import metodos.combox;
 
 /**
  *
@@ -49,6 +50,7 @@ public final class cruces_activos_amenazas extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         llenartabla_amenaza();
         guardar_cruces();
+       
 //       llenar_amenaza(); 
     }
 

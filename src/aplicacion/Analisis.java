@@ -5,14 +5,26 @@
  */
 package aplicacion;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JApplet;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import metodos.Conexionbd;
 
 /**
@@ -81,6 +93,7 @@ public class Analisis extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jButton_nuevo = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -155,7 +168,7 @@ public class Analisis extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 850, 470));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 850, 470));
 
         jPanel5.setBackground(new java.awt.Color(113, 128, 147));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,12 +176,22 @@ public class Analisis extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Set_As_Resume_30px.png"))); // NOI18N
         jButton8.setText("Reporte");
-        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 120, -1));
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Microsoft_Excel_30px.png"))); // NOI18N
         jButton7.setText("Exportar");
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 120, -1));
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Save_30px.png"))); // NOI18N
@@ -178,7 +201,7 @@ public class Analisis extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, -1));
+        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 120, -1));
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Analyze_30px.png"))); // NOI18N
@@ -197,6 +220,17 @@ public class Analisis extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jButton_nuevo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Available_Updates_30px_2.png"))); // NOI18N
+        jButton_nuevo.setText("Nuevo");
+        jButton_nuevo.setBorder(null);
+        jButton_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_nuevoActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 120, 40));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
@@ -227,7 +261,55 @@ public class Analisis extends javax.swing.JFrame {
 
     }
 
-    void llenartabla_amenaza() {
+    public void mostrar_combox() {
+
+//        int colum = jTable_analisis.getColumnCount();
+        String[] positions = {"1", "2", "3"};
+        JComboBox combo = null;
+        combo = new JComboBox<String>(positions);
+        combo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+
+//                    JOptionPane.showMessageDialog(null, "" + );
+            }
+        });
+        int e = 2;
+        int i;
+        for (i = e; i < 4; i++) {
+
+            TableColumn column = jTable_analisis.getColumnModel().getColumn(i);
+            column.setCellEditor(new DefaultCellEditor(combo));
+
+        }
+
+    }
+
+    void obtener_result() {
+//        int colum = jTable_analisis.getColumnCount();
+        int fila = jTable_analisis.getRowCount();
+        int i = 0;
+        int val = 0;
+        int val1 = 0;
+        int result = 0;
+        for (i = 0; i < fila; i++) {
+
+            String valor = (String) jTable_analisis.getValueAt(i, 2);
+            String valor1 = (String) jTable_analisis.getValueAt(i, 3);
+            // Con esta condición solo ponemos comas hasta el penúltimo valor :)
+            if ((String) jTable_analisis.getValueAt(i, 2) == null && (String) jTable_analisis.getValueAt(i, 3) == null) {
+            } else {
+                val = Integer.parseInt(valor);
+                val1 = Integer.parseInt(valor1);
+                result = val * val1;
+                jTable_analisis.setValueAt(result, i, 4);
+
+//                JOptionPane.showMessageDialog(null, result);
+            }
+        }
+
+    }
+
+    void llenartabla_analisis() {
 
         Object[] columnas = {"Activo", "Amenaza", "Probabilidad", "Impacto", "Riesgo"};
         DefaultTableModel modelo = new DefaultTableModel(null, columnas);
@@ -245,17 +327,19 @@ public class Analisis extends javax.swing.JFrame {
             while (rs.next()) {
                 datos[0] = rs.getString("nombre_activo");
                 datos[1] = rs.getString("nombre_amenaza");
-                modelo.addRow(datos); 
+                modelo.addRow(datos);
+
             }
 
             jTable_analisis.setModel(modelo);
-
+            ancho_columnas();
         } catch (SQLException ex) {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        llenartabla_amenaza();
+        llenartabla_analisis();
+        mostrar_combox();
 
 
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -268,8 +352,70 @@ public class Analisis extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        int fila = jTable_analisis.getRowCount();
+        int i = 0;
+        int id_cruce = 0;
+
+        try {
+            for (i = 0; i < fila; i++) {
+
+                if ((String) jTable_analisis.getValueAt(i, 2) == null && (String) jTable_analisis.getValueAt(i, 3) == null) {
+
+                } else {
+                    String nom_amenaza = (String) jTable_analisis.getValueAt(i, 1);
+                    String probabilidad = (String) jTable_analisis.getValueAt(i, 2);
+                    String impacto = (String) jTable_analisis.getValueAt(i, 3);
+                    int pro = Integer.parseInt(probabilidad);
+                    int imp = Integer.parseInt(impacto);
+                    int riesgo = (int) jTable_analisis.getValueAt(i, 4);
+
+                    String sql = "select id_cruce from activo_amenaza inner join amenaza on "
+                            + "activo_amenaza.amenazas_idamenaza=amenaza.idamenaza where nombre_amenaza='" + nom_amenaza + "'";
+                    Statement st = cxn.createStatement();
+                    ResultSet rs = st.executeQuery(sql);
+                    while (rs.next()) {
+                        id_cruce = rs.getInt("id_cruce");
+
+                    }
+                    String sql_insert = "insert into analisis (probabilidad, impacto, riesgo, activo_amenaza_id)values(?,?,?,?)";
+                    PreparedStatement dato = cxn.prepareStatement(sql_insert);
+
+                    dato.setInt(1, pro);
+                    dato.setInt(2, imp);
+                    dato.setInt(3, riesgo);
+                    dato.setInt(4, id_cruce);
+                    dato.executeUpdate();
+
+                }
+
+            }
+            JOptionPane.showMessageDialog(null, "Se guardaron los datos de analisis");
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
     }//GEN-LAST:event_jButton9ActionPerformed
+    public void ancho_columnas() {
+        jTable_analisis.getColumnModel().getColumn(0).setPreferredWidth(180);
+        jTable_analisis.getColumnModel().getColumn(1).setPreferredWidth(650);
+        jTable_analisis.getColumnModel().getColumn(2).setPreferredWidth(140);
+        jTable_analisis.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTable_analisis.getColumnModel().getColumn(4).setPreferredWidth(95);
+
+    }
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        obtener_result();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nuevoActionPerformed
+        llenartabla_analisis();
+        mostrar_combox();
+    }//GEN-LAST:event_jButton_nuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +458,7 @@ public class Analisis extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    public static javax.swing.JButton jButton_nuevo;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
